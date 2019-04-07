@@ -9,13 +9,12 @@ class App extends Component {
     return (
       <div>
         <Menu />
-        <div className="img" id="plant-background">
-          <div className="container">
-            <span className="caption">Hello There!</span>
-            <h1 style={{ color: "seagreen" }}>
-              This is going to be my awesome website!
-            </h1>
-          </div>
+        <div className="img" id="plant-background" />
+        <div className="container">
+          <span className="caption">Hello There!</span>
+          <h1 style={{ color: "seagreen", opacity: "0.65" }}>
+            This is going to be my awesome website!
+          </h1>
         </div>
         <Main />
         <div className="img" id="plant-background" />

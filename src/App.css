@@ -6,8 +6,9 @@ ul {
   list-style-type: none;
 }
 .fixedMenu {
-  display: none;
-  position: fixed;
+  align-items: center;
+  display: flex;
+  position: relative;
   z-index: 1;
   top: 0;
   left: 0;
@@ -15,7 +16,20 @@ ul {
   margin: 0;
   background-color: white;
   width: 100%;
-  height: 10%;
+  height: 10vh;
+  justify-content: space-around;
+}
+.flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .img {
   height: 100vh;
@@ -34,29 +48,18 @@ ul {
   background-color: white;
   position: absolute;
   left: 0;
-  top: 30%;
+  top: 45%;
   margin: 0%;
   width: 100%;
   text-align: center;
   color: #000;
   z-index: 1;
-  opacity: 1 !important;
 }
-div {
-  display: block;
-}
+
 .opacity {
   opacity: 1 !important;
 }
-.wrapper {
-  position: relative;
-  background-color: white;
-  padding: 4% 10%;
-  margin: auto;
-  width: 80%;
-  color: black;
-  opacity: 1;
-}
+
 .caption {
   background-color: #111;
   color: #fff;
