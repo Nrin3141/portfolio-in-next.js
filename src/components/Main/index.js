@@ -5,7 +5,9 @@ const Main = props => {
   return (
     <div>
       <div className="wrapper">
-        <h1>This is the main section!</h1>
+        <h1>
+          I love <i class="fas fa-code" />
+        </h1>
         <p>
           And here I am going to write all the stuff about me! <br />
           Hello there, fellow viewer. <br />
@@ -14,22 +16,22 @@ const Main = props => {
         </p>
         <h3>Stuff I built so far:</h3>
         <div className="icon-container">
-          <a href="#">Project 1</a>
-          <a href="#">Project 2</a>
-          <a href="#">Project 3</a>
+          <div className="tile large" href="#" id="chess" />
+          <div className="tile large" href="#" id="tictactoe" />
+          <div className="tile large" href="#" id="snake" />
         </div>
         <h3>Technologies I use and love: </h3>
         <div className="icon-container">
-          <div className="technology" id="html" />
-          <div className="technology" id="css" />
-          <div className="technology" id="js" />
-          <div className="technology" id="meteor" />
+          <div className="tile small" id="html" />
+          <div className="tile small" id="css" />
+          <div className="tile small" id="js" />
+          <div className="tile small" id="meteor" />
         </div>
         <div className="icon-container top-margin">
-          <div className="technology" id="react" />
-          <div className="technology" id="node" />
-          <div className="technology" id="graphql" />
-          <div className="technology" id="mongo" />
+          <div className="tile small" id="react" />
+          <div className="tile small" id="node" />
+          <div className="tile small" id="graphql" />
+          <div className="tile small" id="mongo" />
         </div>
         <h3>You can also find me on:</h3>
         <div className="icon-container">

@@ -35,7 +35,7 @@ ul {
   height: 100vh;
   padding-bottom: 20vh;
   position: relative;
-  opacity: 0.65;
+  //opacity: 0.65;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
