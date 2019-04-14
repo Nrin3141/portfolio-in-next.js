@@ -5,6 +5,13 @@ const Menu = props => {
       <a href="#">Home</a>
       <a href="#">Projects</a>
       <a href="#">About me</a>
+      <style jsx>{`
+        .fixedMenu {
+          display: flex;
+          justify-content: space-around;
+          padding: 0.5%;
+        }
+      `}</style>
     </div>
   );
 };

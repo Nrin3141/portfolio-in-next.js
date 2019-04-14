@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
+import Head from "./head.js";
 
 class App extends Component {
   render() {
     return (
       <div>
+        <Head />
         <Menu />
-        <div className="img" id="background" />
+        <div className="img background" />
         <div className="container">
           <span className="caption">Hello There!</span>
           <h1 style={{ color: "seagreen", opacity: "0.65" }}>
@@ -16,7 +18,7 @@ class App extends Component {
           </h1>
         </div>
         <Main />
-        <div className="img" id="background" />
+        <div className="img background" />
         <Footer />
         <style jsx>
           {`
@@ -51,15 +53,17 @@ class App extends Component {
             }
             .img {
               height: 100vh;
-              width: 100vw;
+              width: 100%;
+              margin: 0;
               padding-bottom: 20vh;
-              position: relative;
               background-attachment: fixed;
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
             }
-            #background {
+            .full {
+            }
+            .background {
               background-image: url("/static/images/img.jpg");
             }
             .container {
@@ -72,9 +76,6 @@ class App extends Component {
               text-align: center;
               color: #000;
               z-index: 1;
-            }
-            .opacity {
-              opacity: 1 !important;
             }
             .caption {
               background-color: #111;
