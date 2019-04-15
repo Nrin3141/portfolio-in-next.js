@@ -5,6 +5,7 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 //Start the app
+
 app
   .prepare()
   //Start Express server and serve the

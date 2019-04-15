@@ -1,22 +1,10 @@
-import React, { Component } from "react";
-import Menu from "../components/Menu";
-import Footer from "../components/Footer";
-import Head from "../components/Headers";
-
-import Parallax from "../components/Parallax";
+import Layout from "../components/Layout";
 import Main from "../components/Main";
 
-class Coding extends Component {
-  render() {
-    return (
-      <div>
-        <Head />
-        <Menu />
-        <Parallax page={<Main />} />
-        <Footer />
-      </div>
-    );
-  }
-}
+const Coding = () => (
+  <div>
+    <Layout content={<Main />} />
+  </div>
+);
 
 export default Coding;

@@ -1,13 +1,8 @@
-import Menu from "../components/Menu";
-import Footer from "../components/Footer";
-import Head from "../components/Headers";
+import Layout from "../components/Layout";
 
 const PhotographyPage = () => (
   <div>
-    <Head />
-    <Menu />
-    <p> This is the Photography Page</p>
-    <Footer />
+    <Layout content={<p>This is the photography page</p>} />
   </div>
 );
 
