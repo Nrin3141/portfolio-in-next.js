@@ -2,7 +2,7 @@ const Parallax = props => {
   return (
     <div>
       <div className="img background" />
-      {props.page}
+      {props.content}
       <div className="img background" />
       <style jsx>
         {`

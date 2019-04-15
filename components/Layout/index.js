@@ -7,7 +7,7 @@ const Layout = props => (
   <div>
     <Head />
     <Menu />
-    {props.content}
+    {props.parallax ? <Parallax content={props.content} /> : props.content}
     <Footer />
     <style jsx>{``}</style>
   </div>
