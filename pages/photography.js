@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
-import Layout from "../components/Layout";
+import Header from "../components/Headers";
 import Gallery from "../components/Gallery";
 
 export default class PhotographyPage extends Component {
@@ -17,8 +17,8 @@ export default class PhotographyPage extends Component {
   render() {
     return (
       <div>
-        <Layout content={<Gallery images={this.state.images} />} />
-        <style jsx>{``}</style>
+        <Header />
+        <Gallery images={this.state.images} />
       </div>
     );
   }
