@@ -25,6 +25,9 @@ export default class Gallery extends React.Component {
     this.setState(state => ({ index: this.state.index - 1 }));
   };
   handleKey = e => {
+    if (e.key === "Escape") {
+      this.handleCollapse();
+    }
     if (e.key === "ArrowRight") {
       this.handleNextImage();
     }
@@ -83,6 +86,26 @@ export default class Gallery extends React.Component {
         )}
 
         <style jsx>{`
+          .masonry {
+            column-count: 1;
+            column-gap: 0.5em;
+          }
+
+          @media only screen and (min-width: 400px) {
+            .masonry {
+              column-count: 2;
+            }
+          }
+          @media only screen and (min-width: 800px) {
+            .masonry {
+              column-count: 3;
+            }
+          }
+          @media only screen and (min-width: 1600px) {
+            .masonry {
+              column-count: 4;
+            }
+          }
           .container {
             display: flex;
             flex-direction: column;
@@ -122,10 +145,6 @@ export default class Gallery extends React.Component {
           }
           button:hover {
             background: grey;
-          }
-          .masonry {
-            column-count: 4;
-            column-gap: 0.5em;
           }
           .item {
             display: inline-block;
