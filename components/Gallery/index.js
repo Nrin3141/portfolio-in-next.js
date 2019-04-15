@@ -12,9 +12,11 @@ export default class Gallery extends React.Component {
   }
   handleExtend = index => {
     this.setState({ extend: true, index });
+    document.addEventListener("keydown", this.handleKey);
   };
   handleCollapse = () => {
     this.setState({ extend: false, index: 0 });
+    document.removeEventListener("keydown", this.handleKey);
   };
   handleNextImage = () => {
     this.setState(state => ({ index: this.state.index + 1 }));
@@ -22,7 +24,14 @@ export default class Gallery extends React.Component {
   handleLastImage = () => {
     this.setState(state => ({ index: this.state.index - 1 }));
   };
-  componentDidUpdate = () => {};
+  handleKey = e => {
+    if (e.key === "ArrowRight") {
+      this.handleNextImage();
+    }
+    if (e.key === "ArrowLeft") {
+      this.handleLastImage();
+    }
+  };
   render() {
     return (
       <div>
