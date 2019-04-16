@@ -2,7 +2,7 @@
 
 #custom ignores
 /static/sizes/
-
+/.next
 # dependencies
 /node_modules
 /.pnp
