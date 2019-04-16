@@ -2,30 +2,43 @@ import React, { component } from "react";
 import Footer from "../Footer";
 import Menu from "../Menu";
 
-const calculateWidth = w => {
+const getImagePath = w => {
+  if (w >= 2400) {
+    return "gallery";
+  }
   if (w >= 1600) {
-    return w / 4;
+    return "sizes/2400";
   }
   if (w >= 800) {
-    return w / 3;
+    return "sizes/1600";
   }
   if (w >= 400) {
-    return w / 2;
+    return "sizes/800";
   }
-  return w;
+  return "sizes/400";
+};
+const getGalleryPath = w => {
+  if (w >= 800) {
+    return "sizes/800";
+  }
+  return "sizes/400";
 };
 
 export default class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: 0,
+      imagePath: "sizes/400",
+      galleryPath: "sizes/400",
       extend: false,
       index: 0
     };
   }
   componentDidMount = () => {
-    this.setState({ width: calculateWidth(screen.width) });
+    this.setState({
+      imagePath: getImagePath(screen.width),
+      galleryPath: getGalleryPath(screen.width)
+    });
   };
   handleExtend = index => {
     this.setState({ extend: true, index });
@@ -65,7 +78,9 @@ export default class Gallery extends React.Component {
             <div className="img-container">
               <img
                 className="large"
-                src={"/static/gallery/" + this.props.images[this.state.index]}
+                src={`/static/${this.state.imagePath}/${
+                  this.props.images[this.state.index]
+                }`}
               />
               <div id="collapse-button-container">
                 <button onClick={this.handleCollapse}>X</button>
@@ -96,7 +111,7 @@ export default class Gallery extends React.Component {
                         onClick={() => this.handleExtend(index)}
                         key={index}
                         className="item"
-                        src={`/api/image/${image}?width=${this.state.width}`}
+                        src={`/static/${this.state.galleryPath}/${image}`}
                       />
                     );
                   })}
