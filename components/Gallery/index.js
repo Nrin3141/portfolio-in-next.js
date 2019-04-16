@@ -65,7 +65,7 @@ export default class Gallery extends React.Component {
             <div className="img-container">
               <img
                 className="large"
-                src={"/static/gallery/" + this.props.images[this.state.index]}
+                src={`/api/image/${image}?width=${screen.width}`}
               />
               <div id="collapse-button-container">
                 <button onClick={this.handleCollapse}>X</button>
