@@ -10,11 +10,11 @@ fs.readdir("./static/gallery", (err, data) => {
   });
 });
 async function generateImage(width, image) {
-  await fs.mkdir(`/static/sizes/${width}`, { recursive: true }, err => {
+  await fs.mkdir(`static/sizes/${width}`, { recursive: true }, err => {
     if (err) throw err;
-    sharp(`./static/gallery/${image}`)
+    sharp(`static/gallery/${image}`)
       .resize({ width })
-      .toFile(`./static/sizes/${width}/${image}`)
+      .toFile(`static/sizes/${width}/${image}`)
       .then(() => {});
   });
 }
