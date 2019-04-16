@@ -6,6 +6,7 @@ const dev = process.env.NODE_ENV !== "production";
 // Create the Express-Next App
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const resize = require("./resize");
 
 //Start the app
 app
@@ -17,6 +18,23 @@ app
       fs.readdir("./static/gallery", (err, data) => {
         res.send(data);
       });
+    });
+    server.get("/api/image/:name", (req, res) => {
+      const widthString = req.query.width;
+      const heightString = req.query.height;
+      const format = req.query.format;
+
+      let width, height;
+      if (widthString) {
+        width = parseInt(widthString);
+      }
+      if (heightString) {
+        height = parseInt(heightString);
+      }
+      res.type(`image/${format || "png"}`);
+      resize(`./static/gallery/${req.params.name}`, format, width, height).pipe(
+        res
+      );
     });
     server.get("*", (req, res) => {
       return handle(req, res);

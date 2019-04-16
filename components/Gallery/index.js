@@ -2,14 +2,31 @@ import React, { component } from "react";
 import Footer from "../Footer";
 import Menu from "../Menu";
 
+const calculateWidth = w => {
+  if (w >= 1600) {
+    return w / 4;
+  }
+  if (w >= 800) {
+    return w / 3;
+  }
+  if (w >= 400) {
+    return w / 2;
+  }
+  return w;
+};
+
 export default class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      width: 0,
       extend: false,
       index: 0
     };
   }
+  componentDidMount = () => {
+    this.setState({ width: calculateWidth(screen.width) });
+  };
   handleExtend = index => {
     this.setState({ extend: true, index });
     document.addEventListener("keydown", this.handleKey);
@@ -70,16 +87,21 @@ export default class Gallery extends React.Component {
             <div className="container">
               <h1>Gallery</h1>
               <p>This is a gallery showcasing some of my photography!</p>
-              <div className="masonry">
-                {this.props.images.map((image, index) => (
-                  <img
-                    onClick={() => this.handleExtend(index)}
-                    key={index}
-                    className="item"
-                    src={"/static/gallery/" + image}
-                  />
-                ))}
-              </div>
+              {this.state.image}
+              {
+                <div className="masonry">
+                  {this.props.images.map((image, index) => {
+                    return (
+                      <img
+                        onClick={() => this.handleExtend(index)}
+                        key={index}
+                        className="item"
+                        src={`/api/image/${image}?width=${this.state.width}`}
+                      />
+                    );
+                  })}
+                </div>
+              }
             </div>
             <Footer />
           </div>
