@@ -11666,7 +11666,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!***********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fphotography&absolutePagePath=%2Fhome%2Fnrin%2Fprojects%2Fportfolio-page%2Fpages%2Fphotography.js ***!
   \***********************************************************************************************************************************************/
@@ -11689,5 +11689,5 @@ module.exports = dll_7b9265c061e07b49bd43;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]));;
+},[[1,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=photography.js.map

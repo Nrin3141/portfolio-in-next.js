@@ -5,7 +5,7 @@ import Gallery from "../components/Gallery";
 
 export default class PhotographyPage extends Component {
   static async getInitialProps() {
-    const res = await fetch("http://localhost:3000/api/gallery");
+    const res = await fetch("https://ricotrebeljahr.de/api/gallery");
     const images = await res.json();
     return { images };
   }
