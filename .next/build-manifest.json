@@ -15,11 +15,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/coding": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/photography": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
