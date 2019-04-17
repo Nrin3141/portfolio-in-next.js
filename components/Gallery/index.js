@@ -35,23 +35,30 @@ export default class Gallery extends React.Component {
     };
   }
   componentDidMount = () => {
+    this.getPathToImagesIntoState();
+    let resizeTaskId = null;
+    window.addEventListener("resize", () => {
+      if (resizeTaskId !== null) {
+        clearTimeout(resizeTaskId);
+      }
+      resizeTaskId = setTimeout(() => {
+        resizeTaskId = null;
+        this.getPathToImagesIntoState();
+      }, 100);
+    });
+  };
+  getPathToImagesIntoState = () => {
     this.setState({
       imagePath: getImagePath(window.innerWidth),
       galleryPath: getGalleryPath(window.innerWidth)
     });
-    document.addEventListener("orientationchange", this.orientationchange);
+    console.log(this.state);
   };
   componentWillUnmount = () => {
     document.removeEventListener("keydown", this.handleKey);
     document.removeEventListener("touchstart", this.touchstart);
     document.removeEventListener("touchend", this.touchend);
-    document.removeEventListener("orientationchange", this.orientationchange);
-  };
-  orientationchange = () => {
-    this.setState({
-      imagePath: getImagePath(window.innerWidth),
-      galleryPath: getGalleryPath(window.innerWidth)
-    });
+    window.removeEventListener("resize", this.getPathToImagesIntoState);
   };
   handleExtend = index => {
     this.setState({ extend: true, index });
