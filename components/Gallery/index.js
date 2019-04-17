@@ -36,8 +36,8 @@ export default class Gallery extends React.Component {
   }
   componentDidMount = () => {
     this.setState({
-      imagePath: getImagePath(screen.width),
-      galleryPath: getGalleryPath(screen.width)
+      imagePath: getImagePath(window.innerWidth),
+      galleryPath: getGalleryPath(window.innerWidth)
     });
     document.addEventListener("orientationchange", this.orientationchange);
   };
@@ -49,8 +49,8 @@ export default class Gallery extends React.Component {
   };
   orientationchange = () => {
     this.setState({
-      imagePath: getImagePath(screen.width),
-      galleryPath: getGalleryPath(screen.width)
+      imagePath: getImagePath(window.innerWidth),
+      galleryPath: getGalleryPath(window.innerWidth)
     });
   };
   handleExtend = index => {
