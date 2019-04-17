@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import Header from "../components/Headers";
 import Gallery from "../components/Gallery";
+import { server } from "../config";
 
 export default class PhotographyPage extends Component {
   static async getInitialProps() {
-    const res = await fetch("https://ricotrebeljahr.de/api/gallery");
+    const res = await fetch(server + "/api/gallery");
     const images = await res.json();
     return { images };
   }

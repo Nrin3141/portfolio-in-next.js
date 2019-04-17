@@ -2,6 +2,7 @@
 
 #custom ignores
 createDifferentImageSizes.js
+/static
 /.next
 # dependencies
 /node_modules
