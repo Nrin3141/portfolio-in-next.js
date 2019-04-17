@@ -1,9 +1,10 @@
+import P5Canvas from "../P5Canvas";
 const Parallax = props => {
   return (
     <div>
-      <div className="img background" />
+      <P5Canvas sketch={"sketch.js"} />
       {props.content}
-      <div className="img background" />
+      <P5Canvas sketch={"sketch.js"} />
       <style jsx>
         {`
           .img {
@@ -11,13 +12,6 @@ const Parallax = props => {
             width: 100%;
             margin: 0;
             padding-bottom: 20vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-          .background {
-            background-image: url("/static/images/img.jpg");
           }
         `}
       </style>

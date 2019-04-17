@@ -52,7 +52,6 @@ export default class Gallery extends React.Component {
       imagePath: getImagePath(window.innerWidth),
       galleryPath: getGalleryPath(window.innerWidth)
     });
-    console.log(this.state);
   };
   componentWillUnmount = () => {
     document.removeEventListener("keydown", this.handleKey);
