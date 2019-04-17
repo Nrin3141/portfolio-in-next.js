@@ -39,11 +39,19 @@ export default class Gallery extends React.Component {
       imagePath: getImagePath(screen.width),
       galleryPath: getGalleryPath(screen.width)
     });
+    document.addEventListener("orientationchange", this.orientationchange);
   };
   componentWillUnmount = () => {
     document.removeEventListener("keydown", this.handleKey);
     document.removeEventListener("touchstart", this.touchstart);
     document.removeEventListener("touchend", this.touchend);
+    document.removeEventListener("orientationchange", this.orientationchange);
+  };
+  orientationchange = () => {
+    this.setState({
+      imagePath: getImagePath(screen.width),
+      galleryPath: getGalleryPath(screen.width)
+    });
   };
   handleExtend = index => {
     this.setState({ extend: true, index });
@@ -66,7 +74,6 @@ export default class Gallery extends React.Component {
     }
     this.x = 0;
   };
-
   handleCollapse = () => {
     this.setState({ extend: false, index: 0 });
     document.removeEventListener("keydown", this.handleKey);
