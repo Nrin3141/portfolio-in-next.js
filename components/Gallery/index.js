@@ -40,19 +40,48 @@ export default class Gallery extends React.Component {
       galleryPath: getGalleryPath(screen.width)
     });
   };
+  componentWillUnmount = () => {
+    document.removeEventListener("keydown", this.handleKey);
+    document.removeEventListener("touchstart", this.touchstart);
+    document.removeEventListener("touchend", this.touchend);
+  };
   handleExtend = index => {
     this.setState({ extend: true, index });
     document.addEventListener("keydown", this.handleKey);
+    document.addEventListener("touchstart", this.touchstart);
+    document.addEventListener("touchend", this.touchend);
   };
+
+  x = 0;
+  touchstart = e => {
+    this.x = e.targetTouches[0].clientX;
+    document.addEventListener("touchmove", this.touchmove);
+  };
+  touchmove = e => {};
+  touchend = e => {
+    if (e.changedTouches[0].clientX - this.x > 60) {
+      this.handleLastImage();
+    } else if (e.changedTouches[0].clientX - this.x < -60) {
+      this.handleNextImage();
+    }
+    this.x = 0;
+  };
+
   handleCollapse = () => {
     this.setState({ extend: false, index: 0 });
     document.removeEventListener("keydown", this.handleKey);
+    document.removeEventListener("touchstart", this.touchstart);
+    document.removeEventListener("touchend", this.touchend);
   };
   handleNextImage = () => {
-    this.setState(state => ({ index: this.state.index + 1 }));
+    if (this.state.index < this.props.images.length - 1) {
+      this.setState(state => ({ index: this.state.index + 1 }));
+    }
   };
   handleLastImage = () => {
-    this.setState(state => ({ index: this.state.index - 1 }));
+    if (this.state.index > 0) {
+      this.setState(state => ({ index: this.state.index - 1 }));
+    }
   };
   handleKey = e => {
     if (e.key === "Escape") {
@@ -71,7 +100,8 @@ export default class Gallery extends React.Component {
         {this.state.extend ? (
           <div className="slideshow-container">
             <button
-              onClick={this.state.index > 0 ? this.handleLastImage : null}
+              className="gallery-control-buttons"
+              onClick={this.handleLastImage}
             >
               Last
             </button>
@@ -87,11 +117,8 @@ export default class Gallery extends React.Component {
               </div>
             </div>
             <button
-              onClick={
-                this.state.index < this.props.images.length - 1
-                  ? this.handleNextImage
-                  : null
-              }
+              className="gallery-control-buttons"
+              onClick={this.handleNextImage}
             >
               Next
             </button>
@@ -127,7 +154,28 @@ export default class Gallery extends React.Component {
             column-count: 1;
             column-gap: 0.5em;
           }
-
+          .slideshow-container {
+            display: grid;
+            grid-template-columns: 1fr 20fr 1fr;
+            width: 100%;
+            height: 100vh;
+          }
+          .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 5% 0 5%;
+          }
+          @media (pointer: coarse) {
+            .gallery-control-buttons {
+              display: none;
+            }
+            .slideshow-container {
+              grid-template-columns: 1fr;
+              width: 100%;
+              height: 100vh;
+            }
+          }
           @media only screen and (min-width: 400px) {
             .masonry {
               column-count: 2;
@@ -143,12 +191,7 @@ export default class Gallery extends React.Component {
               column-count: 4;
             }
           }
-          .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 5% 0 5%;
-          }
+
           #collapse-button-container {
             position: absolute;
             top: 2%;
@@ -168,12 +211,6 @@ export default class Gallery extends React.Component {
             justify-content: center;
             align-items: center;
             text-align: center;
-          }
-          .slideshow-container {
-            display: grid;
-            grid-template-columns: 1fr 20fr 1fr;
-            width: 100%;
-            height: 100vh;
           }
           button {
             background: black;
