@@ -67,16 +67,17 @@ const Projects = () => (
 
       @media only screen and (max-width: 800px) {
         .size {
-          height: 50vw;
-          width: 50vw;
+          height: 40vw;
+          width: 40vw;
+          margin-top: 5%;
         }
         .large {
-          width: 45vw;
-          height: 45vw;
+          width: 40vw;
+          height: 40vw;
         }
         .size:hover > .large {
-          width: 50vw;
-          height: 50vw;
+          width: 40vw;
+          height: 40vw;
         }
       }
       #img {
