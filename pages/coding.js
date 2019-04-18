@@ -1,9 +1,9 @@
 import Layout from "../components/Layout";
-import Main from "../components/Main";
+import Developer from "../components/Developer";
 
 const Coding = () => (
   <div>
-    <Layout content={<Main />} parallax="true" />
+    <Layout content={<Developer />} />
   </div>
 );
 

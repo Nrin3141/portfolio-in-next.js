@@ -31,26 +31,31 @@ export default class Gallery extends React.Component {
       imagePath: "sizes/400",
       galleryPath: "sizes/400",
       extend: false,
-      index: 0
+      index: 0,
+      resizeTaskId: null
     };
   }
   componentDidMount = () => {
     this.getPathToImagesIntoState();
-    let resizeTaskId = null;
     window.addEventListener("resize", () => {
-      if (resizeTaskId !== null) {
-        clearTimeout(resizeTaskId);
+      if (this.state.resizeTaskId !== null) {
+        clearTimeout(this.state.resizeTaskId);
       }
-      resizeTaskId = setTimeout(() => {
-        resizeTaskId = null;
-        this.getPathToImagesIntoState();
-      }, 100);
+      this.setState({
+        resizeTaskId: setTimeout(() => {
+          this.getPathToImagesIntoState();
+        }, 100)
+      });
     });
+  };
+  componentWillUnmount = () => {
+    clearTimeout(this.state.resizeTaskId);
   };
   getPathToImagesIntoState = () => {
     this.setState({
       imagePath: getImagePath(window.innerWidth),
-      galleryPath: getGalleryPath(window.innerWidth)
+      galleryPath: getGalleryPath(window.innerWidth),
+      resizeTaskId: null
     });
   };
   componentWillUnmount = () => {

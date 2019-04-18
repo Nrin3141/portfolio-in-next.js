@@ -1,8 +1,9 @@
 const AboutMe = () => (
   <div className="center bottom-padding">
-    <h1>
-      I love <i className="fas fa-code" />
-    </h1>
+    <h2>I am a Developer!</h2>
+    <h3>
+      and I love <i className="fas fa-code" />
+    </h3>
     <p>
       And here I am going to write all the stuff about me! <br />
       Hello there, fellow viewer. <br />
