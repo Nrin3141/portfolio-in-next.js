@@ -112,12 +112,12 @@ export default class Gallery extends React.Component {
       <div>
         {this.state.extend ? (
           <div className="slideshow-container">
-            <button
-              className="gallery-control-buttons"
+            <div
+              className="gallery-control-button-container button"
               onClick={this.handleLastImage}
             >
-              Last
-            </button>
+              <div className="gallery-control-buttons fas fa-angle-double-left" />
+            </div>
             <div className="img-container">
               <img
                 className="large"
@@ -126,15 +126,18 @@ export default class Gallery extends React.Component {
                 }`}
               />
               <div id="collapse-button-container">
-                <button onClick={this.handleCollapse}>X</button>
+                <div
+                  onClick={this.handleCollapse}
+                  className="handle-collapse button fas fa-times"
+                />
               </div>
             </div>
-            <button
-              className="gallery-control-buttons"
+            <div
+              className="gallery-control-button-container button"
               onClick={this.handleNextImage}
             >
-              Next
-            </button>
+              <div className="gallery-control-buttons fas fa-angle-double-right" />
+            </div>
           </div>
         ) : (
           <div>
@@ -167,9 +170,42 @@ export default class Gallery extends React.Component {
             column-count: 1;
             column-gap: 0.5em;
           }
+          .handle-collapse {
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            line-height: 2em;
+          }
+          .button {
+            cursor: pointer;
+            background: black;
+            border: none;
+            color: white;
+            text-align: center;
+          }
+          .button:hover {
+            background: grey;
+          }
+          .gallery-control-button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            padding: 0 2%;
+          }
+          .gallery-control-buttons {
+            line-height: 2em;
+            font-size: 2em;
+            width: 3em;
+            height: 2em;
+            border-radius: 50%;
+          }
+          .gallery-control-button-container:hover > div {
+            background: grey;
+          }
           .slideshow-container {
             display: grid;
-            grid-template-columns: 1fr 20fr 1fr;
+            grid-template-columns: 1fr 15fr 1fr;
             width: 100%;
             height: 100vh;
           }
@@ -187,6 +223,10 @@ export default class Gallery extends React.Component {
               grid-template-columns: 1fr;
               width: 100%;
               height: 100vh;
+            }
+            #collapse-button-container {
+              right: 0;
+              justify-content: flex-end;
             }
           }
           @media only screen and (min-width: 400px) {
@@ -207,8 +247,8 @@ export default class Gallery extends React.Component {
 
           #collapse-button-container {
             position: absolute;
-            top: 2%;
-            width: 100%;
+            top: 1%;
+            width: 100;
             display: flex;
             justify-content: center;
           }
@@ -224,14 +264,6 @@ export default class Gallery extends React.Component {
             justify-content: center;
             align-items: center;
             text-align: center;
-          }
-          button {
-            background: black;
-            border: none;
-            color: white;
-          }
-          button:hover {
-            background: grey;
           }
           .item {
             display: inline-block;
