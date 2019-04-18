@@ -2,50 +2,29 @@ import React, { Component } from "react";
 import dynamic from "next/dynamic";
 
 const P5Wrapper = dynamic(import("react-p5-wrapper"), {
-  loading: () => <p>Loading...</p>,
-  ssr: false
+  ssr: false,
+  loading: () => <p>Loading...</p>
 });
 
-class P5Canvas extends React.Component {
+class P5Canvas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      w: 0,
-      h: 0
+      w: 400,
+      h: 400
     };
   }
   componentDidMount = () => {
-    this.resize();
-    let resizeTaskId = null;
-    window.addEventListener("resize", this.delay(resizeTaskId));
+    this.setState(() => ({
+      w: window.innerWidth,
+      h: window.innerHeight
+    }));
   };
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.delay());
-  };
-  delay = resizeTaskId => {
-    if (resizeTaskId !== null) {
-      clearTimeout(resizeTaskId);
-    }
-    resizeTaskId = setTimeout(() => {
-      resizeTaskId = null;
-      this.resize();
-    }, 100);
-  };
-  resize = () => {
-    this.setState({
-      h: window.innerHeight,
-      w: window.innerWidth
-    });
-  };
-  renderP5 = (sketchName, w, h) => {
-    const sketch = require(`../../p5.scripts/${sketchName}`).default(w, h);
-    return <P5Wrapper sketch={sketch} />;
-  };
-
   render() {
+    const sketch = require(`../../p5.scripts/${this.props.sketch}`).default;
     return (
       <div>
-        {this.renderP5(this.props.sketch, this.state.w, this.state.h)}
+        <P5Wrapper sketch={sketch(this.state.w, this.state.h)} />
         <style jsx>{`
           div {
             width: 100vw;

@@ -18,6 +18,13 @@ const Menu = props => {
           justify-content: space-around;
           padding: 0.5%;
         }
+        a {
+          color: black;
+          text-decoration: none;
+        }
+        a:hover {
+          color: seagreen;
+        }
       `}</style>
     </div>
   );

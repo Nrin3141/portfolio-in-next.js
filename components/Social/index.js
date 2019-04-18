@@ -1,5 +1,5 @@
 const Social = () => (
-  <div className="full">
+  <div className="footer center">
     <h3>You can also find me on:</h3>
     <div className="icon-container">
       <a className="social" href="https://github.com/Nrin3141" target="blank">
@@ -25,11 +25,24 @@ const Social = () => (
       </a>
     </div>
     <style jsx>{`
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 4vh;
+      }
+      .icon-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
       .social {
         color: black;
         text-decoration: none;
       }
       .social:hover {
+        color: seagreen;
       }
     `}</style>
   </div>

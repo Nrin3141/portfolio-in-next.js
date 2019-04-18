@@ -1,7 +1,7 @@
 const Headline = () => (
   <div className="container">
-    <span className="caption">Hello There!</span>
-    <h1>This is going to be my awesome website!</h1>
+    <span className="caption">Hi there!</span>
+    <h1>Welcome to my portfolio page.</h1>
     <style jsx>{`
       h1 {
         color: seagreen;
