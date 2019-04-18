@@ -183,7 +183,7 @@ export default class Gallery extends React.Component {
             color: white;
             text-align: center;
           }
-          .button:hover {
+          .handle-collapse:hover {
             background: grey;
           }
           .gallery-control-button-container {
@@ -251,10 +251,6 @@ export default class Gallery extends React.Component {
             width: 100;
             display: flex;
             justify-content: center;
-          }
-          #collapse-button-container button {
-            border-radius: 10%;
-            padding: 0 2%;
           }
           .img-container {
             position: relative;
