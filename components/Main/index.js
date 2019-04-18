@@ -1,58 +1,61 @@
-import React from "react";
+import React, { Component } from "react";
 import Headline from "../Headline";
-import Projects from "../Projects";
-import AboutMe from "../AboutMe";
-import Technologies from "../Technologies";
+import Section from "../Section";
 
-const Main = props => {
-  return (
-    <div>
-      <Headline />
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 2
+    };
+  }
+  componentDidMount = () => {
+    this.setState({ timer: setInterval(this.changeSection, 5000) });
+  };
+  changeSection = () => {
+    this.setState(() => ({
+      counter: this.state.counter + 1
+    }));
+  };
+  componentWillUnmount = () => {
+    clearInterval(this.state.timer);
+  };
+  render() {
+    return (
       <div className="wrapper">
-        <AboutMe />
-        <Projects />
-        <Technologies />
+        <div className={this.state.counter % 3 === 0 ? "on" : "off"}>
+          <Section image="programmer.jpg" headline="Developer" />
+        </div>
+        <div className={this.state.counter % 3 === 1 ? "on" : "off"}>
+          <Section image="photographer.jpg" headline="Photographer" />
+        </div>
+        <div className={this.state.counter % 3 === 2 ? "on" : "off"}>
+          <Section image="traveler.jpg" headline="Traveler" />
+        </div>
+        <style jsx>{`
+          .wrapper {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            text-align: justify;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          .on {
+            display: block;
+            width: 100%;
+          }
+          .off {
+            display: none;
+          }
+        `}</style>
       </div>
-      <style jsx global>{`
-        .center {
-          width: 100%;
-          text-align: center;
-        }
-        .bottom-padding {
-          padding-bottom: 10vh;
-        }
-        .tile {
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-        .icon-container {
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-          flex-wrap: wrap;
-        }
-        .top-margin {
-          margin-top: 5%;
-        }
-      `}</style>
-      <style jsx>{`
-        .wrapper {
-          position: relative;
-          background-color: white;
-          padding: 4% 10%;
-          margin: auto;
-          width: 80%;
-          text-align: justify;
-          color: black;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          opacity: 1;
-        }
-      `}</style>
-    </div>
-  );
-};
+    );
+  }
+}
 export default Main;

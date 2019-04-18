@@ -1,22 +1,40 @@
-const Headline = () => (
-  <div className="container">
-    <span className="caption">Hi there!</span>
-    <h1>Welcome to my portfolio page.</h1>
+const Headline = ({ text, secondText, parallax }) => (
+  <div className={"container " + (parallax ? "absolute" : "top-margin")}>
+    <div>
+      <div className="caption">{text}</div>
+    </div>
+    <div className="white">
+      <h1>{secondText}</h1>
+    </div>
     <style jsx>{`
+      .top-margin {
+        margin-top: 4%;
+      }
+      .white {
+        width: 100%;
+        background: white;
+      }
       h1 {
         color: seagreen;
         opacity: 0.65;
       }
-      .container {
-        background: white;
+      .absolute {
         position: absolute;
         left: 0;
-        top: 45%;
+        top: 30%;
         margin: 0%;
+      }
+      .container {
+        flex-direction: column;
         width: 100%;
-        text-align: center;
         color: #000;
-        z-index: 1;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
       }
       .caption {
         background-color: #111;

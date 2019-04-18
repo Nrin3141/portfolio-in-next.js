@@ -6,21 +6,5 @@
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
     }
-  ],
-  "p5": [
-    {
-      "id": "./node_modules/react-p5-wrapper/node_modules/p5/lib/p5.js",
-      "name": "./node_modules/react-p5-wrapper/node_modules/p5/lib/p5.js",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
-    }
-  ],
-  "react-p5-wrapper": [
-    {
-      "id": "./node_modules/react-p5-wrapper/lib/P5Wrapper.js",
-      "name": "./node_modules/react-p5-wrapper/lib/P5Wrapper.js",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
-    }
   ]
 }
