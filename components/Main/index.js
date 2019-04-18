@@ -40,9 +40,8 @@ const Main = props => {
         .wrapper {
           position: relative;
           background-color: white;
-          padding: 4% 10%;
-          margin: auto;
-          width: 80%;
+          margin: 0;
+          width: 100%;
           text-align: justify;
           color: black;
           display: flex;
