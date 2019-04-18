@@ -1,19 +1,64 @@
 const Technologies = () => (
-  <div className="full">
+  <div className="center">
     <h3>Technologies I use and love: </h3>
     <div className="icon-container">
-      <div className="tile small" id="html" />
-      <div className="tile small" id="css" />
-      <div className="tile small" id="js" />
-      <div className="tile small" id="meteor" />
+      <div className="size">
+        <div className="tile small" id="html" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="css" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="js" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="meteor" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="react" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="node" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="graphql" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="mongo" />
+      </div>
     </div>
-    <div className="icon-container top-margin">
-      <div className="tile small" id="react" />
-      <div className="tile small" id="node" />
-      <div className="tile small" id="graphql" />
-      <div className="tile small" id="mongo" />
-    </div>
+
     <style jsx>{`
+      .size {
+        height: 10vw;
+        width: 10vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .small {
+        width: 8vw;
+        height: 8vw;
+      }
+      .small:hover {
+        width: 10vw;
+        height: 10vw;
+      }
+      @media only screen and (max-width: 800px) {
+        .size {
+          height: 22vw;
+          width: 22vw;
+        }
+        .small {
+          width: 15vw;
+          height: 15vw;
+        }
+        .small:hover {
+          width: 22vw;
+          height: 22vw;
+        }
+      }
+
       #html {
         background-image: url("/static/images/html5.svg");
       }

@@ -1,5 +1,5 @@
 const AboutMe = () => (
-  <div className="full">
+  <div className="center bottom-padding">
     <h1>
       I love <i className="fas fa-code" />
     </h1>
@@ -9,6 +9,7 @@ const AboutMe = () => (
       My name is Rico Trebeljahr and I have learned to program in 2017. Here is
       a list of my favorite projects I have built so far:
     </p>
+    <style jsx>{``}</style>
   </div>
 );
 export default AboutMe;

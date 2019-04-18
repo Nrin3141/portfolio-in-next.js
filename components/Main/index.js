@@ -1,6 +1,5 @@
 import React from "react";
 import Headline from "../Headline";
-import Social from "../Social";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 import Technologies from "../Technologies";
@@ -13,13 +12,14 @@ const Main = props => {
         <AboutMe />
         <Projects />
         <Technologies />
-        <Social />
       </div>
       <style jsx global>{`
-        .full {
+        .center {
           width: 100%;
           text-align: center;
-          padding-bottom: 5%;
+        }
+        .bottom-padding {
+          padding-bottom: 10vh;
         }
         .tile {
           background-size: contain;
@@ -34,22 +34,6 @@ const Main = props => {
         }
         .top-margin {
           margin-top: 5%;
-        }
-        .large {
-          width: 20vw;
-          height: 20vw;
-        }
-        .large:hover {
-          width: 25vw;
-          height: 25vw;
-        }
-        .small {
-          width: 10vw;
-          height: 10vw;
-        }
-        .small:hover {
-          width: 12vw;
-          height: 12vw;
         }
       `}</style>
       <style jsx>{`
