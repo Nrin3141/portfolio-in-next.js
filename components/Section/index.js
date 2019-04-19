@@ -9,7 +9,11 @@ class Section extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.setState({ w: window.innerWidth, h: window.innerHeight });
+    this.setState({
+      w: window.innerWidth,
+      h: window.innerHeight
+    });
+
     window.addEventListener("resize", () => {
       if (this.state.resizeTaskId !== null) {
         clearTimeout(this.state.resizeTaskId);
@@ -21,6 +25,7 @@ class Section extends React.Component {
       });
     });
   };
+
   componentWillUnmount = () => {
     clearTimeout(this.state.resizeTaskId);
   };
@@ -34,19 +39,34 @@ class Section extends React.Component {
   render() {
     return (
       <div>
-        <div className="absolute">
+        <a className="absolute" href={this.props.href}>
           <h2>I am a</h2>
-          <h2>{this.props.headline}</h2>
-        </div>
+          <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
+          <div className="blinking-dash" />
+        </a>
         <div
           className="img"
           id={this.props.image.slice(0, this.props.image.length - 4)}
         />
         <style jsx>{`
+          @keyframes blink {
+              0% {background: black}
+              50% {background: white}
+              100% {background: black}
+          }
+          .blinking-dash{
+            background: lime;
+            line-height: 17px;
+            margin-left: 3px;
+            animation: blink 0.8s infinite;
+            width: 3px;
+            height: 15px;
+          }
+
           h2 {
             font-size: 1em;
             margin: 0;
-            padding: 0 0.2em;
+            padding: 0;
           }
           .absolute {
             background: white;
@@ -60,6 +80,7 @@ class Section extends React.Component {
             z-index: 4;
           }
           .img {
+            background-color: #8AE1FC;
             background: url("static/images/${this.props.image}");
             opacity: 0.7;
             width: 100vw;
@@ -106,7 +127,11 @@ class Section extends React.Component {
           @media (orientation: portrait) {
             background-size: auto 100vh;
           }
-          div {
+          a {
+            text-decoration: none;
+            color: black;
+          }
+          div, a {
             position: relative;
             display: flex;
             flex-direction: column;

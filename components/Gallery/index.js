@@ -171,6 +171,9 @@ export default class Gallery extends React.Component {
         )}
 
         <style jsx>{`
+          p {
+            text-align: center;
+          }
           .masonry {
             column-count: 1;
             column-gap: 0.5em;
