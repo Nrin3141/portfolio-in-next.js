@@ -52,7 +52,10 @@ class Main extends React.Component {
     return (
       <div className="wrapper">
         <Section
-          image={"" + headline.toLowerCase() + ".jpg"}
+          images={this.state.headlines.map(
+            headline => headline.toLowerCase() + ".jpg"
+          )}
+          img={headline.toLowerCase() + ".jpg"}
           headline={word}
           href={href}
         />

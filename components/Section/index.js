@@ -45,25 +45,51 @@ class Section extends React.Component {
           <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
           <div className="blinking-dash" />
         </a>
-        <div
-          className="img"
-          id={this.props.image.slice(0, this.props.image.length - 4)}
-        />
+        {this.props.images.map(image => (
+          <div
+            className={"img " + (image === this.props.img ? "on" : "off")}
+            id={image.slice(0, -4)}
+          />
+        ))}
+
         <style jsx>{`
-          @keyframes blink {
-              0% {background: black}
-              50% {background: white}
-              100% {background: black}
+          #photographer {
+            background: url("static/images/photographer.jpg");
+            background-position: 80% 80%;
+            background-size: cover;
           }
-          .blinking-dash{
-            background: lime;
+          #programmer {
+            background: url("static/images/programmer.jpg");
+            background-size: 200%;
+            background-position: 50% 80%;
+          }
+          #traveler {
+            background: url("static/images/traveler.jpg");
+            background-size: cover;
+            background-position: 80% 80%;
+          }
+          .off {
+            display: none;
+          }
+          @keyframes blink {
+            0% {
+              background: black;
+            }
+            50% {
+              background: white;
+            }
+            100% {
+              background: black;
+            }
+          }
+          .blinking-dash {
+            background: black;
             line-height: 17px;
             margin-left: 3px;
             animation: blink 0.8s infinite;
             width: 3px;
             height: 15px;
           }
-
           h2 {
             font-size: 1em;
             margin: 0;
@@ -72,7 +98,6 @@ class Section extends React.Component {
           .absolute {
             background: white;
             position: absolute;
-            width: auto;
             top: 10%;
             width: 80vw;
             padding: 1em 1em;
@@ -81,24 +106,12 @@ class Section extends React.Component {
             z-index: 4;
           }
           .img {
-            background-color: #8AE1FC;
-            background: url("static/images/${this.props.image}");
+            background-repeat: no-repeat;
             opacity: 0.7;
             width: 100vw;
             height: 100vh;
-            background-size: cover;
-            background-repeat: no-repeat;
           }
-          #photographer {
-            background-position: 80% 80%;
-          }
-          #programmer {
-            background-size: 200%;
-            background-position: 50% 80%;
-          }
-          #traveler {
-            background-position: 80% 80%;
-          }
+
           @media only screen and (min-width: 850px) {
             #photographer {
               background-position: 80% 20%;
@@ -132,7 +145,8 @@ class Section extends React.Component {
             text-decoration: none;
             color: black;
           }
-          div, a {
+          div,
+          a {
             position: relative;
             display: flex;
             flex-direction: column;
