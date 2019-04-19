@@ -1,4 +1,3 @@
-import P5Canvas from "../P5Canvas";
 const Parallax = props => {
   return (
     <div>
