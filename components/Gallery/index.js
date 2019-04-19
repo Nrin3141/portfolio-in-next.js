@@ -91,16 +91,19 @@ export default class Gallery extends React.Component {
     document.removeEventListener("touchstart", this.touchstart);
     document.removeEventListener("touchend", this.touchend);
   };
+
   handleNextImage = () => {
     if (this.state.index < this.props.images.length - 1) {
       this.setState(state => ({ index: this.state.index + 1 }));
     }
   };
+
   handleLastImage = () => {
     if (this.state.index > 0) {
       this.setState(state => ({ index: this.state.index - 1 }));
     }
   };
+
   handleKey = e => {
     if (e.key === "Escape") {
       this.handleCollapse();
@@ -112,6 +115,7 @@ export default class Gallery extends React.Component {
       this.handleLastImage();
     }
   };
+
   render() {
     return (
       <div>

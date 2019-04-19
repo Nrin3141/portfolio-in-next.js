@@ -1,18 +1,36 @@
 import React, { Component } from "react";
 
+const getImagePath = w => {
+  if (w >= 2400) {
+    return "images";
+  }
+  if (w >= 1600) {
+    return "sizes/2400";
+  }
+  if (w >= 800) {
+    return "sizes/1600";
+  }
+  if (w >= 400) {
+    return "sizes/800";
+  }
+  return "sizes/400";
+};
+
 class Section extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       w: 0,
       h: 0,
-      resizeTaskId: null
+      resizeTaskId: null,
+      size: "sizes/1600"
     };
   }
   componentDidMount = () => {
     this.setState({
       w: window.innerWidth,
-      h: window.innerHeight
+      h: window.innerHeight,
+      size: getImagePath(window.innerWidth)
     });
 
     window.addEventListener("resize", () => {
@@ -34,10 +52,12 @@ class Section extends React.Component {
     this.setState({
       w: window.innerWidth,
       h: window.innerHeight,
-      resizeTaskId: null
+      resizeTaskId: null,
+      size: getImagePath(window.innerWidth)
     });
   };
   render() {
+    let size = this.state.size;
     return (
       <div>
         <a className="absolute" href={this.props.href}>
@@ -49,22 +69,23 @@ class Section extends React.Component {
           <div
             className={"img " + (image === this.props.img ? "on" : "off")}
             id={image.slice(0, -4)}
+            key={image.slice(0, -4)}
           />
         ))}
 
         <style jsx>{`
-          #photographer {
-            background: url("static/images/photographer.jpg");
-            background-position: 80% 80%;
-            background-size: cover;
-          }
           #programmer {
-            background: url("static/images/programmer.jpg");
+            background: url("static/${size}/programmer.jpg");
             background-size: 200%;
             background-position: 50% 80%;
           }
+          #photographer {
+            background: url("static/${size}/photographer.jpg");
+            background-position: 80% 80%;
+            background-size: cover;
+          }
           #traveler {
-            background: url("static/images/traveler.jpg");
+            background: url("static/${size}/traveler.jpg");
             background-size: cover;
             background-position: 80% 80%;
           }
@@ -128,7 +149,7 @@ class Section extends React.Component {
           }
           @media only screen and (max-width: 650px) {
             #programmer {
-              background: url("/static/images/programmer2.jpg");
+              background: url("/static/${size}/programmer2.jpg");
               background-size: cover;
               background-position: 48% 50%;
             }
