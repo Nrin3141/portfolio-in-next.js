@@ -1,37 +1,61 @@
 import React, { Component } from "react";
 import Headline from "../Headline";
 import Section from "../Section";
+import { server } from "../../config";
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 2
+      wait: 0,
+      counter: 0,
+      headlines: ["Programmer", "Photographer", "Traveler"],
+      hrefs: [
+        server + "/coding",
+        server + "/photography",
+        "https://photodyssee.com"
+      ]
     };
   }
   componentDidMount = () => {
-    this.setState({ timer: setInterval(this.changeSection, 5000) });
+    this.setState({
+      waitInterval: setInterval(this.changeSection, 5000),
+      interval: setInterval(this.count, 200)
+    });
+  };
+  count = () => {
+    if (
+      this.state.counter === this.state.headlines[this.state.wait % 3].length
+    ) {
+      clearInterval(this.state.interval);
+    } else {
+      this.setState(() => ({ counter: this.state.counter + 1 }));
+    }
   };
   changeSection = () => {
     this.setState(() => ({
-      counter: this.state.counter + 1
+      wait: this.state.wait + 1,
+      counter: 0,
+      interval: setInterval(this.count, 200)
     }));
   };
+
   componentWillUnmount = () => {
-    clearInterval(this.state.timer);
+    clearInterval(this.state.waitInterval);
+    clearInterval(this.state.interval);
   };
   render() {
+    let section = this.state.wait % 3;
+    let headline = this.state.headlines[section];
+    let word = headline.slice(0, this.state.counter);
+    let href = this.state.hrefs[section];
     return (
       <div className="wrapper">
-        <div className={this.state.counter % 3 === 0 ? "on" : "off"}>
-          <Section image="programmer.jpg" headline="Developer" />
-        </div>
-        <div className={this.state.counter % 3 === 1 ? "on" : "off"}>
-          <Section image="photographer.jpg" headline="Photographer" />
-        </div>
-        <div className={this.state.counter % 3 === 2 ? "on" : "off"}>
-          <Section image="traveler.jpg" headline="Traveler" />
-        </div>
+        <Section
+          image={"" + headline.toLowerCase() + ".jpg"}
+          headline={word}
+          href={href}
+        />
         <style jsx>{`
           .wrapper {
             position: relative;
