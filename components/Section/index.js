@@ -80,6 +80,7 @@ class Section extends React.Component {
             z-index: 4;
           }
           .img {
+            background-color: #8AE1FC;
             background: url("static/images/${this.props.image}");
             opacity: 0.7;
             width: 100vw;
