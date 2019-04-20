@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Headline from "../Headline";
 import Section from "../Section";
 import { server } from "../../config";
+import Menu from "../Menu";
 
 class Main extends React.Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class Main extends React.Component {
     let href = this.state.hrefs[section];
     return (
       <div className="wrapper">
+        <Menu />
         <Section
           images={this.state.headlines.map(
             headline => headline.toLowerCase() + ".jpg"
@@ -61,6 +63,7 @@ class Main extends React.Component {
         />
         <style jsx>{`
           .wrapper {
+            overflow: hidden;
             position: relative;
             margin: 0;
             padding: 0;
