@@ -60,7 +60,12 @@ class Section extends React.Component {
             <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
             <div className="blinking-dash" />
           </div>
-          <a href={this.props.href}>
+          <a
+            href={this.props.href}
+            target={
+              this.props.href === "https://photodyssee.com" ? "_blank" : "_self"
+            }
+          >
             <p>See for yourself!</p>
           </a>
         </div>
