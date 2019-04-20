@@ -71,6 +71,8 @@ class Parallax extends React.Component {
             overflow: hidden;
           }
           iframe {
+            position: fixed;
+            z-index: 0;
             max-width: 100%;
             overflow: hidden;
             pointer-events: none;

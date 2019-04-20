@@ -6,7 +6,7 @@ import Technologies from "../Technologies";
 
 const Developer = () => {
   return (
-    <div className="white">
+    <div>
       <Headline
         text="What?"
         secondText="You search for a developer?"
@@ -41,11 +41,10 @@ const Developer = () => {
         }
       `}</style>
       <style jsx>{`
-        .white {
-          z-index: 5;
-          background: white;
-        }
         .wrapper {
+          position: relative;
+          z-index: 1;
+          background: white;
           width: 100%;
           text-align: justify;
           color: black;
