@@ -4,16 +4,10 @@ const getImagePath = w => {
   if (w >= 2400) {
     return "images";
   }
-  if (w >= 1600) {
-    return "sizes/2400";
-  }
-  if (w >= 800) {
+  if (w <= 800) {
     return "sizes/1600";
   }
-  if (w >= 400) {
-    return "sizes/800";
-  }
-  return "sizes/400";
+  return "sizes/2400";
 };
 
 class Section extends React.Component {
@@ -119,7 +113,7 @@ class Section extends React.Component {
           .absolute {
             background: white;
             position: absolute;
-            top: 10%;
+            top: 20%;
             width: 80vw;
             padding: 1em 1em;
             flex-direction: row;
@@ -130,7 +124,6 @@ class Section extends React.Component {
             background-repeat: no-repeat;
             opacity: 0.7;
             width: 100vw;
-            height: 100vh;
           }
 
           @media only screen and (min-width: 850px) {
@@ -165,6 +158,10 @@ class Section extends React.Component {
           a {
             text-decoration: none;
             color: black;
+          }
+          div {
+            width: 100%;
+            height: 100%;
           }
           div,
           a {
