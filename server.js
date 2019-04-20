@@ -18,7 +18,7 @@ app
         res.send(data);
       });
     });
-    server.get("*", (req, res) => {
+    server.get("/*", (req, res) => {
       return handle(req, res);
     });
     server.listen(3000, err => {
