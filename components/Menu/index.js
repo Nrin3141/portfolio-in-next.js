@@ -21,10 +21,10 @@ class Menu extends React.Component {
           <Link href="/">
             <a title="Home">Home</a>
           </Link>
-          <Link href="/photography">
+          <Link href="/photography" prefetch>
             <a title="Photography">Photography</a>
           </Link>
-          <Link href="/coding">
+          <Link href="/coding" prefetch>
             <a title="Coding">Coding</a>
           </Link>
         </div>
