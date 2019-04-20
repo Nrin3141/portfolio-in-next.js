@@ -31,11 +31,12 @@ class Menu extends React.Component {
 
         <style jsx>{`
           .absolute {
-            color: white;
+            color: black;
             margin: 0 0 10px 0;
           }
+
           i {
-            background: black;
+            background: #f9dc5c;
             padding: 8px 10px;
             border-radius: 50%;
           }
@@ -55,6 +56,7 @@ class Menu extends React.Component {
             min-width: 20vw;
             padding: 20px;
             margin: 0;
+            background: rgba(249, 220, 92, 0.9);
             background: rgba(255, 255, 255, 0.9);
             height: 100vh;
             border-left: 2px solid black;
@@ -65,7 +67,7 @@ class Menu extends React.Component {
             margin: 5px;
           }
           a:hover {
-            color: seagreen;
+            color: grey;
           }
         `}</style>
       </div>

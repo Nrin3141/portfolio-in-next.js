@@ -54,11 +54,16 @@ class Section extends React.Component {
     let size = this.state.size;
     return (
       <div>
-        <a className="absolute" href={this.props.href}>
-          <h2>I am a</h2>
-          <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
-          <div className="blinking-dash" />
-        </a>
+        <div className="absolute">
+          <div className="white">
+            <h2>I am a</h2>
+            <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
+            <div className="blinking-dash" />
+          </div>
+          <a href={this.props.href}>
+            <p>See for yourself!</p>
+          </a>
+        </div>
         {this.props.images.map(image => (
           <div
             className={"img " + (image === this.props.img ? "on" : "off")}
@@ -68,6 +73,25 @@ class Section extends React.Component {
         ))}
 
         <style jsx>{`
+          div{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          }
+          .white {
+            background: white;
+            padding: 1em 1em;
+            flex-direction: row;
+            flex-wrap: wrap;
+            -webkit-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
+            box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
+          }
           #programmer {
             background: url("static/${size}/programmer.jpg");
             background-size: 200%;
@@ -111,13 +135,10 @@ class Section extends React.Component {
             padding: 0;
           }
           .absolute {
-            background: white;
             position: absolute;
             top: 20%;
             width: 80vw;
-            padding: 1em 1em;
-            flex-direction: row;
-            flex-wrap: wrap;
+            height: auto;
             z-index: 4;
           }
           .img {
@@ -156,22 +177,15 @@ class Section extends React.Component {
             background-size: auto 100vh;
           }
           a {
+            margin-top: 40px;
+            background: #F9DC5C;
+            padding: 0 40px;
             text-decoration: none;
             color: black;
+            display: relative;
+            z-index: 2;
           }
-          div {
-            width: 100%;
-            height: 100%;
-          }
-          div,
-          a {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-          }
+
         `}</style>
       </div>
     );
