@@ -6,8 +6,12 @@ import Technologies from "../Technologies";
 
 const Developer = () => {
   return (
-    <div>
-      <Headline text="What?" secondText="You search for a developer?" />
+    <div className="white">
+      <Headline
+        text="What?"
+        secondText="You search for a developer?"
+        parallax="true"
+      />
       <div className="wrapper">
         <AboutMe />
         <Projects />
@@ -37,6 +41,10 @@ const Developer = () => {
         }
       `}</style>
       <style jsx>{`
+        .white {
+          z-index: 5;
+          background: white;
+        }
         .wrapper {
           width: 100%;
           text-align: justify;

@@ -1,5 +1,5 @@
 import React, { component } from "react";
-import Footer from "../Footer";
+import Social from "../Social";
 import Menu from "../Menu";
 
 const getImagePath = w => {
@@ -170,7 +170,7 @@ export default class Gallery extends React.Component {
                 </div>
               }
             </div>
-            <Footer />
+            <Social />
           </div>
         )}
 
