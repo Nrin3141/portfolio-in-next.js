@@ -2,6 +2,7 @@ const AboutMe = () => (
   <div className="grid basic">
     <div style={{ gridArea: "p" }} className="width">
       <img src="static/images/profile.jpg" />
+      <div className="img" />
     </div>
     <div style={{ gridArea: "h" }} className="width col">
       <h2>About Me</h2>
@@ -33,8 +34,15 @@ const AboutMe = () => (
         flex-direction: column;
         align-items: center;
       }
-
+      .img {
+        width: 60vw;
+        height: 60vw;
+        background: url("/static/images/profile.jpg");
+        background-size: cover;
+        border-radius: 100%;
+      }
       img {
+        display: none;
         max-height: 100%;
         max-width: 100%;
         border-radius: 50%;
@@ -50,6 +58,12 @@ const AboutMe = () => (
         flex-direction: column;
       }
       @media only screen and (min-width: 600px) {
+        .img {
+          display: none;
+        }
+        img {
+          display: block;
+        }
         .grid {
           align-items: start;
           display: grid;
