@@ -26,6 +26,9 @@ const Social = () => (
     </div>
     <style jsx>{`
       .footer {
+        position: relative;
+        z-index: 1;
+        background: white;
         display: flex;
         flex-direction: column;
         align-items: center;

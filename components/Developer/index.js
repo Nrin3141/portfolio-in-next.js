@@ -7,7 +7,11 @@ import Technologies from "../Technologies";
 const Developer = () => {
   return (
     <div>
-      <Headline text="What?" secondText="You search for a developer?" />
+      <Headline
+        text="What?"
+        secondText="You search for a developer?"
+        parallax="true"
+      />
       <div className="wrapper">
         <AboutMe />
         <Projects />
@@ -38,6 +42,9 @@ const Developer = () => {
       `}</style>
       <style jsx>{`
         .wrapper {
+          position: relative;
+          z-index: 1;
+          background: white;
           width: 100%;
           text-align: justify;
           color: black;

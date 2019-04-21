@@ -1,6 +1,6 @@
 import Menu from "../Menu";
 import Head from "../Headers";
-import Footer from "../Footer";
+import Social from "../Social";
 import Parallax from "../Parallax";
 
 const Layout = props => (
@@ -8,7 +8,7 @@ const Layout = props => (
     <Head />
     <Menu />
     {props.parallax ? <Parallax content={props.content} /> : props.content}
-    <Footer />
+    <Social />
     <style jsx>{``}</style>
   </div>
 );
