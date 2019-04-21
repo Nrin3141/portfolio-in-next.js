@@ -40,15 +40,24 @@ class Parallax extends React.Component {
   render() {
     return (
       <div className="splitboard">
-        <div className="splitboard-content">
-          <iframe
-            src="https://nrin3141.github.io/portfolio-banner/"
-            width={this.state.w}
-            height={this.state.h}
-            scrolling="no"
-            frameBorder="0"
-          />
-        </div>
+        {this.state.w < 500 ? (
+          <div className="a">
+            <div className="fixed">
+              <h2>Develop your ideas</h2>
+            </div>
+          </div>
+        ) : (
+          <div className="splitboard-content">
+            <iframe
+              src="https://nrin3141.github.io/portfolio-banner/"
+              width={this.state.w}
+              height={this.state.h}
+              scrolling="no"
+              frameBorder="0"
+            />
+          </div>
+        )}
+
         {this.props.content}
 
         <style jsx>{`
@@ -60,6 +69,14 @@ class Parallax extends React.Component {
             width: 100%;
             height: 35vw;
             background: rgb(51, 51, 51);
+            color: rgb(249, 220, 92);
+            overflow: hidden;
+          }
+          .a {
+            width: 100%;
+            height: 30vh;
+            background: rgb(51, 51, 51);
+            color: rgb(249, 220, 92);
             overflow: hidden;
           }
           iframe {
@@ -67,6 +84,14 @@ class Parallax extends React.Component {
             z-index: 0;
             max-width: 100%;
             overflow: hidden;
+          }
+          .fixed {
+            position: fixed;
+            display: flex;
+            width: 100%;
+            height: 30vh;
+            align-items: center;
+            justify-content: center;
           }
         `}</style>
       </div>
