@@ -42,7 +42,7 @@ class Parallax extends React.Component {
       <div className="splitboard">
         <div className="splitboard-content">
           <iframe
-            src="https://nrin3141.github.io/Snake-2.0/"
+            src="https://sketches.ricotrebeljahr.de"
             width={this.state.w}
             height={this.state.h}
             scrolling="no"
