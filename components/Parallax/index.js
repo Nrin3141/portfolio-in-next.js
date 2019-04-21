@@ -58,7 +58,7 @@ class Parallax extends React.Component {
           }
           .splitboard-content {
             width: 100%;
-            height: 50vh;
+            height: 35vw;
             background: rgb(51, 51, 51);
             overflow: hidden;
           }
