@@ -1,6 +1,6 @@
 const Social = () => (
   <div className="footer center">
-    <h3>You can also find me on:</h3>
+    <h3>You can also find me here:</h3>
     <div className="icon-container">
       <a className="social" href="https://github.com/Nrin3141" target="blank">
         Github <i className="fab fa-github" />
@@ -46,6 +46,13 @@ const Social = () => (
       }
       .social:hover {
         color: seagreen;
+      }
+      @media only screen and (max-width: 500px) {
+        .icon-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+        }
       }
     `}</style>
   </div>

@@ -1,16 +1,22 @@
 const AboutMe = () => (
   <div className="center bottom-padding">
-    <h2>I am a Developer!</h2>
-    <h3>
-      and I love <i className="fas fa-code" />
-    </h3>
+    <h1>About Me</h1>
     <p>
-      And here I am going to write all the stuff about me! <br />
-      Hello there, fellow viewer. <br />
-      My name is Rico Trebeljahr and I have learned to program in 2017. Here is
-      a list of my favorite projects I have built so far:
+      Hi there, I am Rico - a self-taught full-stack-developer from Berlin. I
+      like problem solving. I like programming. I like photography. And I am a
+      passionate traveler. Oh and I am extremely curious.
+      <h2>So what about you, huh?</h2>
+      You want to have your own website, too? Web app? Mobile app? Game? Online
+      Shop? Blog?! Or do you have an amazing idea but lack the technical skills
+      to actually do it? Don't hesitate.
+      <button>Get in touch!</button>
+      You are in search of a full-stack developer to expand your team? You
+      search for somebody who can easily learn and integrate new technologies,
+      is deeply curious and loves to expand his expertise constantly? Then:
+      <button>Get in touch!</button>
+      Want to have a closer look first? Below you can find some of my personal
+      projects!
     </p>
-    <style jsx>{``}</style>
   </div>
 );
 export default AboutMe;

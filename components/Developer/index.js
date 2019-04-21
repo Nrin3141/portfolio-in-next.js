@@ -1,5 +1,5 @@
 import React from "react";
-import Headline from "../Headline";
+//import Headline from "../Headline";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 import Technologies from "../Technologies";

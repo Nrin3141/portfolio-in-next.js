@@ -1,6 +1,6 @@
 const Projects = () => (
   <div className="center">
-    <h3>Stuff I built so far:</h3>
+    <h2>Stuff I built so far:</h2>
     <div className="icon-container">
       <a className="size" href="#" target="blank">
         <div className="tile large" id="chess" />
@@ -78,6 +78,21 @@ const Projects = () => (
         .size:hover > .large {
           width: 40vw;
           height: 40vw;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .size {
+          height: 80vw;
+          width: 80vw;
+          margin-top: 5%;
+        }
+        .large {
+          width: 80vw;
+          height: 80vw;
+        }
+        .size:hover > .large {
+          width: 80vw;
+          height: 80vw;
         }
       }
       #img {
