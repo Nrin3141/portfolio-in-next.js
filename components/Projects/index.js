@@ -1,6 +1,8 @@
 const Projects = () => (
   <div className="center">
-    <h2>Stuff I built so far:</h2>
+    <h2>
+      <i className="fas fa-code" /> Projects
+    </h2>
     <div className="icon-container">
       <a className="size" href="#" target="blank">
         <div className="tile large" id="chess" />
@@ -32,6 +34,9 @@ const Projects = () => (
       </a>
     </div>
     <style jsx>{`
+      h2 {
+        margin-top: 50px;
+      }
       a {
         text-decoration: none;
         color: black;
