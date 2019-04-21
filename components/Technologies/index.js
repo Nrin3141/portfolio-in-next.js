@@ -1,6 +1,6 @@
 const Technologies = () => (
   <div className="center">
-    <h3>Technologies I use and love: </h3>
+    <h2>Technologies I use and love: </h2>
     <div className="icon-container">
       <div className="size">
         <div className="tile small" id="html" />
@@ -29,6 +29,9 @@ const Technologies = () => (
     </div>
 
     <style jsx>{`
+      h2 {
+        margin-top: 50px;
+      }
       .size {
         height: 10vw;
         width: 10vw;

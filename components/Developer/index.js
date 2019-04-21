@@ -1,12 +1,12 @@
 import React from "react";
-import Headline from "../Headline";
+//import Headline from "../Headline";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 import Technologies from "../Technologies";
 
 const Developer = () => {
   return (
-    <div>
+    <div className="outer">
       {/*
       <Headline
         text="What?"
@@ -42,11 +42,20 @@ const Developer = () => {
         }
       `}</style>
       <style jsx>{`
+        .outer {
+          position: relative;
+          z-index: 1;
+          width: 100vw;
+          background: rgb(51, 51, 51);
+          display: flex;
+          justify-content: center;
+        }
         .wrapper {
+          border-radius: 0 0 30px 30px;
           position: relative;
           z-index: 1;
           background: white;
-          width: 100%;
+          width: 90vw;
           text-align: justify;
           color: black;
           display: flex;
@@ -54,7 +63,7 @@ const Developer = () => {
           align-items: center;
           justify-content: center;
           opacity: 1;
-          padding-bottom: 5%;
+          padding-bottom: 10%;
         }
       `}</style>
     </div>

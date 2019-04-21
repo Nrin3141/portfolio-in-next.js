@@ -1,6 +1,5 @@
 const Social = () => (
   <div className="footer center">
-    <h3>You can also find me on:</h3>
     <div className="icon-container">
       <a className="social" href="https://github.com/Nrin3141" target="blank">
         Github <i className="fab fa-github" />
@@ -25,14 +24,17 @@ const Social = () => (
       </a>
     </div>
     <style jsx>{`
+      h3 {
+        color: #f9dc5c;
+      }
       .footer {
         position: relative;
         z-index: 1;
-        background: white;
+        background: rgb(40, 40, 40);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 4vh;
+        padding: 20px 0 20px 0;
       }
       .icon-container {
         width: 100%;
@@ -41,11 +43,21 @@ const Social = () => (
         flex-wrap: wrap;
       }
       .social {
-        color: black;
+        color: #f9dc5c;
         text-decoration: none;
       }
       .social:hover {
-        color: seagreen;
+        color: white;
+      }
+      a {
+        margin: 10px;
+      }
+      @media only screen and (max-width: 500px) {
+        .icon-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+        }
       }
     `}</style>
   </div>
