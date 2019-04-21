@@ -7,11 +7,12 @@ import Technologies from "../Technologies";
 const Developer = () => {
   return (
     <div>
+      {/*
       <Headline
         text="What?"
         secondText="You search for a developer?"
         parallax="true"
-      />
+      />*/}
       <div className="wrapper">
         <AboutMe />
         <Projects />
@@ -53,6 +54,7 @@ const Developer = () => {
           align-items: center;
           justify-content: center;
           opacity: 1;
+          padding-bottom: 5%;
         }
       `}</style>
     </div>

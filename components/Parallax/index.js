@@ -42,7 +42,7 @@ class Parallax extends React.Component {
       <div className="splitboard">
         <div className="splitboard-content">
           <iframe
-            src="https://sketches.ricotrebeljahr.de"
+            src="https://nrin3141.github.io/portfolio-banner/"
             width={this.state.w}
             height={this.state.h}
             scrolling="no"
@@ -50,15 +50,7 @@ class Parallax extends React.Component {
           />
         </div>
         {this.props.content}
-        <div className="splitboard-content">
-          <iframe
-            src="https://photodyssee.com"
-            width={this.state.w}
-            height={this.state.h}
-            scrolling="no"
-            frameborder="0"
-          />
-        </div>
+
         <style jsx>{`
           .splitboard {
             height: 100%;
@@ -66,8 +58,8 @@ class Parallax extends React.Component {
           }
           .splitboard-content {
             width: 100%;
-            height: 100vh;
-            background: blue;
+            height: 50vh;
+            background: rgb(51, 51, 51);
             overflow: hidden;
           }
           iframe {
@@ -75,7 +67,6 @@ class Parallax extends React.Component {
             z-index: 0;
             max-width: 100%;
             overflow: hidden;
-            pointer-events: none;
           }
         `}</style>
       </div>
