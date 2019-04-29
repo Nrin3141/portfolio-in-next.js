@@ -4,13 +4,13 @@ const Projects = () => (
       <i className="fas fa-code" /> Projects
     </h2>
     <div className="icon-container">
-      <a className="size" href="#" target="blank">
+      <a className="size" href="https://chess.ricotrebeljahr.de" target="blank">
         <div className="tile large" id="chess" />
         <div className="absolute">View</div>
       </a>
       <a
         className="size"
-        href="https://codepen.io/Nrin/full/QzvwQe"
+        href="https://tic-tac-toe.ricotrebeljahr.de"
         target="blank"
       >
         <div className="tile large" id="tictactoe" />
@@ -24,11 +24,7 @@ const Projects = () => (
         <div className="tile large" id="snake" />
         <div className="absolute">View</div>
       </a>
-      <a
-        className="size"
-        href="https://nrin3141.github.io/Snake-2.0/"
-        target="blank"
-      >
+      <a className="size" href="https://photodyssee.com" target="blank">
         <div className="tile large" id="img" />
         <div className="absolute">View</div>
       </a>

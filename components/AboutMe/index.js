@@ -12,7 +12,7 @@ const AboutMe = () => (
         passionate traveler.
       </p>
     </div>
-    <h2 style={{ gridArea: "a" }}>So what about you, huh?</h2>
+    <h2 style={{ gridArea: "a" }}>May I help You?</h2>
     <p style={{ gridArea: "b" }}>
       Do you want to have your own website too? Or a Web app? Mobile game?
       Online Shop? Blog?! Or do you have an amazing idea but lack the technical
