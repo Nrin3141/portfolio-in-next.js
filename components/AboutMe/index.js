@@ -18,7 +18,10 @@ const AboutMe = () => (
       Online Shop? Blog?! Or do you have an amazing idea but lack the technical
       skills to actually do it? Don't hesitate to ask.
     </p>
-    <button style={{ gridArea: "c" }}>Get in touch!</button>
+    <a style={{ gridArea: "c" }} href="/contact">
+      Get in touch
+    </a>
+
     <p style={{ gridArea: "d" }}>
       Or are you in search of a full-stack developer to expand your team?
       Somebody who can easily learn and integrate new technologies and loves to
@@ -89,11 +92,11 @@ const AboutMe = () => (
       }
       h1,
       h2,
-      button {
+      input {
         text-align: center;
       }
 
-      button {
+      a {
         background-color: #4caf50; /* Green */
         border: none;
         color: white;
