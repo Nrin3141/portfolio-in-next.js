@@ -25,6 +25,15 @@ app
 
     server.post("/contact", (req, res) => {
       //console.log(req.body);
+      let output = `
+      <h1>New Mail from Portfolio Website</h1>
+      <h2>Contact</h2>
+      <h3>Name: ${req.body.name}</h3>
+      <h3>Email: ${req.body.email}</h3>
+      <h3>Message:</h3>
+      <p>${req.body.message}</p>
+
+      `;
       async function main() {
         // Generate test SMTP service account from ethereal.email
         // Only needed if you don't have a real mail account for testing
