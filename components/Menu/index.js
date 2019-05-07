@@ -34,7 +34,6 @@ class Menu extends React.Component {
             color: black;
             margin: 0 0 10px 0;
           }
-
           i {
             background: #f9dc5c;
             padding: 8px 10px;
@@ -56,8 +55,7 @@ class Menu extends React.Component {
             min-width: 20vw;
             padding: 20px;
             margin: 0;
-            background: rgba(249, 220, 92, 0.9);
-            background: rgba(255, 255, 255, 0.9);
+            background: #f0eff4;
             height: 100vh;
             border-left: 2px solid black;
           }

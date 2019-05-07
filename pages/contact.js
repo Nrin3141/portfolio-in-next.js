@@ -1,4 +1,9 @@
 import React from "react";
+import Link from "next/link";
+import Menu from "../components/Menu";
+import Header from "../components/Headers";
+import { colors } from "../config/colors.js";
+
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -26,35 +31,108 @@ class Contact extends React.Component {
     console.log(this.state);
   };
   render() {
-    return this.state.res ? (
-      <div>
-        <h2>{"Email: " + this.state.res.email}</h2>
-        <h2>{"Name: " + this.state.res.name}</h2>
-        <h2>{"Message: " + this.state.res.message}</h2>
-        <h2>Success!!!</h2>
+    return (
+      <div id="outer">
+        <Header />
+        <Menu />
+        {this.state.res ? (
+          <div id="container">
+            <h2>
+              Good news {this.state.res.name} <br /> Your message is on the way
+              to Rico ...
+            </h2>
+            <Link href="/">
+              <a title="Home">Home</a>
+            </Link>
+          </div>
+        ) : (
+          <form onSubmit={this.submit} method="post">
+            <label>Email </label>
+
+            <input
+              type="email"
+              placeholder="Enter your E-Mail address"
+              name="email"
+            />
+            <label>Name </label>
+
+            <input type="text" placeholder="Enter your name" name="name" />
+            <textarea
+              name="message"
+              placeholder="What do you want to tell me?"
+              rows="10"
+              cols="30"
+            />
+            <button id="submit" type="submit">
+              Get in touch
+            </button>
+          </form>
+        )}
+        <style jsx>{`
+          h2 {
+            text-align: center;
+            color: ${colors.lightblue}
+          }
+          #outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            background: ${colors.dark};
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            background: ${colors.lightblue};
+            padding: 20px 10vw;
+            border-radius: 5%;
+            }
+          }
+          form > * {
+            margin: 20px;
+
+          }
+          form > label {
+            text-align: center;
+            margin: 0px;
+          }
+          input,
+          textarea {
+            -webkit-box-shadow: 0px 10px 16px -4px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 10px 16px -4px rgba(0,0,0,0.75);
+            box-shadow: 0px 10px 16px -4px rgba(0,0,0,0.75);
+            text-align: center;
+            margin: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 4%;
+
+          }
+
+          a,
+          #submit {
+            background: ${colors.metal};
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
+          #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        `}</style>
       </div>
-    ) : (
-      <form onSubmit={this.submit} method="post">
-        <input
-          type="email"
-          placeholder="Enter your E-Mail address"
-          defaultValue="a@a.de"
-          name="email"
-        />
-        <input
-          type="text"
-          placeholder="Enter your name"
-          defaultValue="Client"
-          name="name"
-        />
-        <input
-          type="textarea"
-          placeholder="Enter your message"
-          defaultValue="Hello world"
-          name="message"
-        />
-        <input type="submit" value="Get in touch" />
-      </form>
     );
   }
 }

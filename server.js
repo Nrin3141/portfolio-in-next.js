@@ -26,13 +26,18 @@ app
     server.post("/contact", (req, res) => {
       //console.log(req.body);
       let output = `
+      <head>
+      <style>
+      h1{
+        color: blue;
+      }</style>
+      </head>
       <h1>New Mail from Portfolio Website</h1>
       <h2>Contact</h2>
       <h3>Name: ${req.body.name}</h3>
       <h3>Email: ${req.body.email}</h3>
       <h3>Message:</h3>
       <p>${req.body.message}</p>
-
       `;
       async function main() {
         // Generate test SMTP service account from ethereal.email
@@ -55,18 +60,11 @@ app
         // send mail with defined transport object
         let info = await transporter.sendMail({
           from: `"Nodemailer" <rico@ricotrebeljahr.de>`, // sender address
-          to: "ricotrebeljahr@yahoo.de", // list of receivers
+          to: "ricotrebeljahr@yahoo.de, katrin_trebeljahr@yahoo.de", // list of receivers
           subject: "New Contact",
           text: "Some text", // Subject line
           html: output // plain text body
         });
-
-        console.log("Message sent: %s", info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-        // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
       }
 
       main().catch(console.error);

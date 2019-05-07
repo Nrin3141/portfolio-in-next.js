@@ -1,9 +1,9 @@
 import Main from "../components/Main";
-import Head from "../components/Headers";
+import Header from "../components/Headers";
 
 const Home = () => (
   <div>
-    <Head />
+    <Header />
     <Main />
   </div>
 );
