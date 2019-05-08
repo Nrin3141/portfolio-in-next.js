@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Head from "../Headers";
+import Head from "../components/Headers";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -8,6 +8,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
+import Fab from "@material-ui/core/Fab";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -17,7 +18,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import Link from "@material-ui/core/Link";
 
 const styles = {
   text: {
@@ -35,8 +35,8 @@ const styles = {
     /*backgroundColor: theme.palette.background.paper*/
   },
   appBar: {
-    position: "relative",
-    zIndex: 3
+    top: "auto",
+    bottom: 0
   },
   toolbar: {
     alignItems: "center",
@@ -49,10 +49,6 @@ const styles = {
     left: 0,
     right: 0,
     margin: "0 auto"
-  },
-  link: {
-    color: "white",
-    textDecoration: "none"
   }
 };
 
@@ -66,37 +62,13 @@ class BottomAppBar extends React.Component {
             <IconButton color="inherit" aria-label="Open drawer">
               <MenuIcon />
             </IconButton>
-            <div>
-              <Link
-                className={classes.link}
-                href={"https://github.com/Nrin3141"}
-                target="blank"
-              >
-                Github <i className="fab fa-github" />
-              </Link>
-              <Link
-                className={classes.link}
-                href="https://www.linkedin.com/in/ricotrebeljahr"
-                target="blank"
-              >
-                Linked
-                <i className="fab fa-linkedin" />
-              </Link>
-              <Link
-                className={classes.link}
-                href="https://stackoverflow.com/story/ricotrebeljahr"
-                target="blank"
-              >
-                <i className="fab fa-stack-overflow" /> Stackoverflow
-              </Link>
-              <Link
-                className={classes.link}
-                href="https://codepen.io/Nrin/"
-                target="blank"
-              >
-                Codepen <i className="fab fa-codepen" />
-              </Link>
-            </div>
+            <Fab
+              color="secondary"
+              aria-label="Add"
+              className={classes.fabButton}
+            >
+              <AddIcon />
+            </Fab>
             <div>
               <IconButton color="inherit">
                 <SearchIcon />
