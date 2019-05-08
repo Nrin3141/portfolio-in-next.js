@@ -14,10 +14,6 @@
     "/coding": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
-    ],
-    "/contact": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
     ]
   }
 }

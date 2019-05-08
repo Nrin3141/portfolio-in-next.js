@@ -13,15 +13,33 @@ const styles = {
     flexDirection: "column",
     flexWrap: "wrap"
   },
-  textField: {
-    /*marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit*/
+  button: {
+    background: "blue",
+    margin: "20px 0",
+    padding: 10,
+    width: "50%",
+    alignSelf: "center"
   },
   dense: {
     marginTop: 16
   },
   menu: {
     width: 200
+  },
+  outer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    margin: 0
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column"
   }
 };
 
@@ -52,6 +70,7 @@ class OutlinedTextFields extends React.Component {
     })
       .then(res => res.json())
       .then(res => this.setState({ res })); //assign state to array res*/
+    this.setState({ res: true });
   };
 
   handleChange = name => event => {
@@ -64,18 +83,16 @@ class OutlinedTextFields extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div id="outer">
+      <div className={classes.outer}>
         <Header />
         <Menu />
         {this.state.res ? (
-          <div id="container">
-            <h2>
-              Good news {this.state.res.name} <br /> Your message is on the way
-              to Rico ...
-            </h2>
-            <Link href="/">
-              <a title="Home">Home</a>
-            </Link>
+          <div>
+            <h2>Good news {this.state.res.name} </h2>
+            <h2> Your message is on the way ...</h2>
+            <Button className={classes.button} href="/">
+              Home
+            </Button>
           </div>
         ) : (
           <form
@@ -106,7 +123,7 @@ class OutlinedTextFields extends React.Component {
             />
             <TextField
               id="outlined-textarea"
-              label="Multiline Placeholder"
+              label="Message"
               placeholder="Enter your message here!"
               name="message"
               multiline
@@ -114,30 +131,11 @@ class OutlinedTextFields extends React.Component {
               margin="normal"
               variant="outlined"
             />
-            <Button id="submit" type="submit">
+            <Button className={classes.button} id="submit" type="submit">
               Get in touch
             </Button>
           </form>
         )}
-        <style jsx>{`
-          #outer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 0;
-          }
-          form {
-            display: flex;
-            flex-direction: column;
-            border-radius: 5%;
-            }
-          }
-          `}</style>
       </div>
     );
   }
@@ -148,118 +146,3 @@ OutlinedTextFields.propTypes = {
 };
 
 export default withStyles(styles)(OutlinedTextFields);
-/*
-import React from "react";
-import Link from "next/link";
-
-class Contact extends React.Component {
-
-  componentDidUpdate = () => {
-    console.log(this.state);
-  };
-  render() {
-    return (
-      <div id="outer">
-        <Header />
-        <Menu />
-        {this.state.res ? (
-          <div id="container">
-            <h2>
-              Good news {this.state.res.name} <br /> Your message is on the way
-              to Rico ...
-            </h2>
-            <Link href="/">
-              <a title="Home">Home</a>
-            </Link>
-          </div>
-        ) : (
-          <form onSubmit={this.submit} method="post">
-            <label>Email </label>
-
-            <input
-              type="email"
-              placeholder="Enter your E-Mail address"
-              name="email"
-            />
-            <label>Name </label>
-
-            <input type="text" placeholder="Enter your name" name="name" />
-            <textarea
-              name="message"
-              placeholder="What do you want to tell me?"
-              rows="10"
-              cols="30"
-            />
-            <button id="submit" type="submit">
-              Get in touch
-            </button>
-          </form>
-        )}
-        <style jsx>{`
-          h2 {
-            text-align: center;
-            color: ${colors.lightblue}
-          }
-          #outer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 0;
-            background: ${colors.dark};
-          }
-          form {
-            display: flex;
-            flex-direction: column;
-            background: ${colors.lightblue};
-            padding: 20px 10vw;
-            border-radius: 5%;
-            }
-          }
-          form > * {
-            margin: 20px;
-
-          }
-          form > label {
-            text-align: center;
-            margin: 0px;
-          }
-          input,
-          textarea {
-            -webkit-box-shadow: 0px 10px 16px -4px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 10px 16px -4px rgba(0,0,0,0.75);
-            box-shadow: 0px 10px 16px -4px rgba(0,0,0,0.75);
-            text-align: center;
-            margin: 5px;
-            border: none;
-            padding: 5px;
-            border-radius: 4%;
-
-          }
-
-          a,
-          #submit {
-            background: ${colors.metal};
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-          }
-          #container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-          }
-        `}</style>
-      </div>
-    );
-  }
-}*/
