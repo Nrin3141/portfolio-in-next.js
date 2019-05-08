@@ -35,20 +35,13 @@ const styles = {
     /*backgroundColor: theme.palette.background.paper*/
   },
   appBar: {
+    background: "rgb(40, 40, 40)",
     position: "relative",
     zIndex: 3
   },
   toolbar: {
     alignItems: "center",
     justifyContent: "space-between"
-  },
-  fabButton: {
-    position: "absolute",
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: "0 auto"
   },
   link: {
     color: "white",
@@ -61,50 +54,37 @@ class BottomAppBar extends React.Component {
     const { classes } = this.props;
     const content = (
       <div>
-        <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <AppBar position="fixed" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-            <IconButton color="inherit" aria-label="Open drawer">
-              <MenuIcon />
-            </IconButton>
-            <div>
-              <Link
-                className={classes.link}
-                href={"https://github.com/Nrin3141"}
-                target="blank"
-              >
-                Github <i className="fab fa-github" />
-              </Link>
-              <Link
-                className={classes.link}
-                href="https://www.linkedin.com/in/ricotrebeljahr"
-                target="blank"
-              >
-                Linked
-                <i className="fab fa-linkedin" />
-              </Link>
-              <Link
-                className={classes.link}
-                href="https://stackoverflow.com/story/ricotrebeljahr"
-                target="blank"
-              >
-                <i className="fab fa-stack-overflow" /> Stackoverflow
-              </Link>
-              <Link
-                className={classes.link}
-                href="https://codepen.io/Nrin/"
-                target="blank"
-              >
-                Codepen <i className="fab fa-codepen" />
-              </Link>
-            </div>
-            <div>
-              <IconButton color="inherit">
-                <SearchIcon />
-              </IconButton>
-              <IconButton color="inherit">
-                <MoreIcon />
-              </IconButton>
-            </div>
+            <Link
+              className={classes.link}
+              href={"https://github.com/Nrin3141"}
+              target="blank"
+            >
+              Github <i className="fab fa-github" />
+            </Link>
+            <Link
+              className={classes.link}
+              href="https://www.linkedin.com/in/ricotrebeljahr"
+              target="blank"
+            >
+              Linked
+              <i className="fab fa-linkedin" />
+            </Link>
+            <Link
+              className={classes.link}
+              href="https://stackoverflow.com/story/ricotrebeljahr"
+              target="blank"
+            >
+              <i className="fab fa-stack-overflow" /> Stackoverflow
+            </Link>
+            <Link
+              className={classes.link}
+              href="https://codepen.io/Nrin/"
+              target="blank"
+            >
+              Codepen <i className="fab fa-codepen" />
+            </Link>
           </Toolbar>
         </AppBar>
       </div>
