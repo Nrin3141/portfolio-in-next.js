@@ -40,20 +40,23 @@ class TemporaryDrawer extends React.Component {
         <List>
           {["Home", "Photography", "Coding"].map((text, index) => {
             return (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {text === "Photography" ? (
-                    <Photography />
-                  ) : text === "Coding" ? (
-                    <Coding />
-                  ) : (
-                    <Home />
-                  )}
-                </ListItemIcon>
-                <Link href={"/" + (text === "Home" ? "" : text.toLowerCase())}>
+              <Link
+                key={text}
+                href={"/" + (text === "Home" ? "" : text.toLowerCase())}
+              >
+                <ListItem button>
+                  <ListItemIcon>
+                    {text === "Photography" ? (
+                      <Photography />
+                    ) : text === "Coding" ? (
+                      <Coding />
+                    ) : (
+                      <Home />
+                    )}
+                  </ListItemIcon>
                   <ListItemText primary={text} />
-                </Link>
-              </ListItem>
+                </ListItem>
+              </Link>
             );
           })}
         </List>
@@ -77,7 +80,7 @@ class TemporaryDrawer extends React.Component {
               color: black;
               z-index: 200;
               top: 20px;
-              left: 88vw;
+              right: 5vw;
               margin: 0;
             }
           `}</style>
@@ -106,70 +109,3 @@ TemporaryDrawer.propTypes = {
 };
 
 export default withStyles(styles)(TemporaryDrawer);
-
-/*import React, { Component } from "react";
-
-class Menu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      extend: false
-    };
-  }
-  setExtend = value => {
-    this.setState({ extend: value });
-  };
-  render() {
-    return this.state.extend ? (
-      <div className="fixedMenu">
-        <div className="absolute" onClick={() => this.setExtend(false)}>
-          <i className="fas fa-times" />
-        </div>
-
-
-        <style jsx>{`
-          .absolute {
-            color: black;
-            margin: 0 0 10px 0;
-          }
-          i {
-            background: #f9dc5c;
-            padding: 8px 10px;
-            border-radius: 50%;
-          }
-          div {
-            display: flex;
-            flex-direction: column;
-          }
-          .fixedMenu {
-            position: absolute;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            top: 0;
-            right: 0;
-            text-align: center;
-            min-width: 20vw;
-            padding: 20px;
-            margin: 0;
-            background: #f0eff4;
-            height: 100vh;
-            border-left: 2px solid black;
-          }
-          a {
-            color: black;
-            text-decoration: none;
-            margin: 5px;
-          }
-          a:hover {
-            color: grey;
-          }
-        `}</style>
-      </div>
-    ) : (
-
-    );
-  }
-}
-export default Menu;*/

@@ -35,6 +35,7 @@ function Header() {
           line-height: calc(
             1.3em + (1.5 - 1.2) * ((100vw - 300px) / (1600 - 300))
           );
+          font-family: "Roboto", sans-serif;
         }
       `}</style>
     </div>

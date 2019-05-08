@@ -1,13 +1,38 @@
-import React from "react";
-import Link from "next/link";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
 import Menu from "../components/Menu";
 import Header from "../components/Headers";
-import { colors } from "../config/colors.js";
+import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
-class Contact extends React.Component {
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap"
+  },
+  textField: {
+    /*marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit*/
+  },
+  dense: {
+    marginTop: 16
+  },
+  menu: {
+    width: 200
+  }
+};
+
+class OutlinedTextFields extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      multiline: "",
+      name: "",
+      email: ""
+    };
   }
   submit = e => {
     e.preventDefault();
@@ -16,7 +41,8 @@ class Contact extends React.Component {
       message: e.target.message.value,
       name: e.target.name.value
     };
-    fetch("/contact", {
+    console.log(data);
+    /*fetch("/contact", {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -25,8 +51,109 @@ class Contact extends React.Component {
       }
     })
       .then(res => res.json())
-      .then(res => this.setState({ res })); //assign state to array res
+      .then(res => this.setState({ res })); //assign state to array res*/
   };
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div id="outer">
+        <Header />
+        <Menu />
+        {this.state.res ? (
+          <div id="container">
+            <h2>
+              Good news {this.state.res.name} <br /> Your message is on the way
+              to Rico ...
+            </h2>
+            <Link href="/">
+              <a title="Home">Home</a>
+            </Link>
+          </div>
+        ) : (
+          <form
+            onSubmit={this.submit}
+            className={classes.container}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              id="outlined-name"
+              label="Name"
+              name="name"
+              className={classes.textField}
+              value={this.state.name}
+              onChange={this.handleChange("name")}
+              margin="normal"
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-email"
+              label="Email"
+              name="email"
+              className={classes.textField}
+              value={this.state.email}
+              onChange={this.handleChange("email")}
+              margin="normal"
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-textarea"
+              label="Multiline Placeholder"
+              placeholder="Enter your message here!"
+              name="message"
+              multiline
+              className={classes.textField}
+              margin="normal"
+              variant="outlined"
+            />
+            <Button id="submit" type="submit">
+              Get in touch
+            </Button>
+          </form>
+        )}
+        <style jsx>{`
+          #outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            border-radius: 5%;
+            }
+          }
+          `}</style>
+      </div>
+    );
+  }
+}
+
+OutlinedTextFields.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(OutlinedTextFields);
+/*
+import React from "react";
+import Link from "next/link";
+
+class Contact extends React.Component {
+
   componentDidUpdate = () => {
     console.log(this.state);
   };
@@ -135,6 +262,4 @@ class Contact extends React.Component {
       </div>
     );
   }
-}
-
-export default Contact;
+}*/

@@ -3,49 +3,24 @@ import PropTypes from "prop-types";
 import Head from "../Headers";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Paper from "@material-ui/core/Paper";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import Avatar from "@material-ui/core/Avatar";
-import MenuIcon from "@material-ui/icons/Menu";
-import AddIcon from "@material-ui/icons/Add";
-import SearchIcon from "@material-ui/icons/Search";
-import MoreIcon from "@material-ui/icons/MoreVert";
-import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
 
 const styles = {
-  text: {
-    /*paddingTop: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2*/
-  },
-  paper: {
-    paddingBottom: 50
-  },
-  list: {
-    /*marginBottom: theme.spacing.unit * 2*/
-  },
-  subHeader: {
-    /*backgroundColor: theme.palette.background.paper*/
-  },
   appBar: {
-    background: "rgb(40, 40, 40)",
+    background: "rgb(80, 80, 80)",
     position: "relative",
     zIndex: 3
   },
   toolbar: {
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-around"
   },
-  link: {
+  Button: {
     color: "white",
-    textDecoration: "none"
+    padding: 10,
+    textDecoration: "none",
+    textTransform: "capitalize"
   }
 };
 
@@ -56,35 +31,43 @@ class BottomAppBar extends React.Component {
       <div>
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-            <Link
-              className={classes.link}
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
               href={"https://github.com/Nrin3141"}
               target="blank"
+              rel="noopener"
             >
               Github <i className="fab fa-github" />
-            </Link>
-            <Link
-              className={classes.link}
+            </Button>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
               href="https://www.linkedin.com/in/ricotrebeljahr"
               target="blank"
+              rel="noopener"
             >
               Linked
               <i className="fab fa-linkedin" />
-            </Link>
-            <Link
-              className={classes.link}
+            </Button>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
               href="https://stackoverflow.com/story/ricotrebeljahr"
               target="blank"
+              rel="noopener"
             >
               <i className="fab fa-stack-overflow" /> Stackoverflow
-            </Link>
-            <Link
-              className={classes.link}
+            </Button>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
               href="https://codepen.io/Nrin/"
               target="blank"
+              rel="noopener"
             >
               Codepen <i className="fab fa-codepen" />
-            </Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
