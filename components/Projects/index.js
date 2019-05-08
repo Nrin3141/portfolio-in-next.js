@@ -1,3 +1,5 @@
+import _JSXStyle from "styled-jsx/style";
+
 const Projects = () => (
   <div className="center">
     <h2>
@@ -31,7 +33,20 @@ const Projects = () => (
     </div>
     <style jsx>{`
       h2 {
+        text-align: center;
         margin-top: 50px;
+      }
+      .icon-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .tile {
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 5px;
       }
       a {
         text-decoration: none;

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import _JSXStyle from "styled-jsx/style";
 
 function Header() {
   return (
@@ -13,19 +14,12 @@ function Header() {
         />
         <link
           rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-          crossorigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
         />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <style jsx global>{`

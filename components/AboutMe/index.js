@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import _JSXStyle from "styled-jsx/style";
 
 const styles = {
   basic: {
@@ -33,7 +34,10 @@ const styles = {
   col: {
     flexDirection: "column"
   },
-  a: {
+  headline: {
+    textAlign: "center"
+  },
+  button: {
     backgroundColor: "#4caf50",
     border: "none",
     color: "white",
@@ -49,28 +53,28 @@ const AboutMe = props => {
   const { classes } = props;
 
   return (
-    <div classes={{ grid: classes.grid, basic: classes.basic }}>
-      <div style={{ gridArea: "p" }} className={classes.width}>
+    <div className={classes.basic}>
+      <div className={classes.width}>
         <div className={classes.img} />
       </div>
-      <div style={{ gridArea: "h" }} classes={(classes.width, classes.col)}>
-        <h2>About Me</h2>
+      <div classes={(classes.width, classes.col)}>
+        <h2 className={classes.headline}>About Me</h2>
         <p>
           Hi there, I am Rico - a self-taught full-stack-developer from Berlin.
           I like problem solving. I like programming. I like photography. And I
           am a passionate traveler.
         </p>
       </div>
-      <h2 style={{ gridArea: "a" }}>May I help You?</h2>
-      <p style={{ gridArea: "b" }}>
+      <h2>May I help You?</h2>
+      <p>
         Do you want to have your own website too? Or a Web app? Mobile game?
         Online Shop? Blog?! Or do you have an amazing idea but lack the
         technical skills to actually do it? Don't hesitate to ask.
       </p>
-      <Button style={{ gridArea: "c" }} href="/contact">
+      <Button className={classes.button} href="/contact">
         Get in touch
       </Button>
-      <p style={{ gridArea: "d" }}>
+      <p>
         Or are you in search of a full-stack developer to expand your team?
         Somebody who can easily learn and integrate new technologies and loves
         to expand his expertise constantly?

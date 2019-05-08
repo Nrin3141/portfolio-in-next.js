@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _JSXStyle from "styled-jsx/style";
 
 class Parallax extends React.Component {
   constructor(props) {

@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 import Technologies from "../Technologies";
+import _JSXStyle from "styled-jsx/style";
 
 const styles = {
   outer: {

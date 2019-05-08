@@ -3,6 +3,7 @@ import Headline from "../Headline";
 import Section from "../Section";
 import { server } from "../../config";
 import Menu from "../Menu";
+import _JSXStyle from "styled-jsx/style";
 
 class Main extends React.Component {
   constructor(props) {

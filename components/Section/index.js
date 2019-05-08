@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _JSXStyle from "styled-jsx/style";
 
 const getImagePath = w => {
   if (w >= 2400) {

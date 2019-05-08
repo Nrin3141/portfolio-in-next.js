@@ -1,6 +1,7 @@
 import React, { component } from "react";
 import Social from "../Social";
 import Menu from "../Menu";
+import _JSXStyle from "styled-jsx/style";
 
 const getImagePath = w => {
   if (w >= 2400) {

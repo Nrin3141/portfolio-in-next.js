@@ -12,6 +12,7 @@ import Photography from "@material-ui/icons/PhotoCamera";
 import Home from "@material-ui/icons/Home";
 import Coding from "@material-ui/icons/Code";
 import Link from "next/link";
+import _JSXStyle from "styled-jsx/style";
 
 const styles = {
   list: {
