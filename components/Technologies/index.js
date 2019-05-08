@@ -1,4 +1,92 @@
-const Technologies = () => (
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+
+const styles = {
+  basic: {
+    paddingTop: "30px",
+    width: "80vw",
+    textAlign: "justify",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  img: {
+    width: "60vw",
+    height: "60vw",
+    background: 'url("/static/images/profile.jpg")',
+    backgroundSize: "cover",
+    borderRadius: "100%",
+    display: "none",
+    maxHeight: "100%",
+    maxWidth: "100%",
+    borderRadius: "50%"
+  },
+  width: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%"
+  },
+  col: {
+    flexDirection: "column"
+  },
+  a: {
+    backgroundColor: "#4caf50",
+    border: "none",
+    color: "white",
+    padding: "15px 32px",
+    textAlign: "center",
+    textDecoration: "none",
+    display: "inline-block",
+    fontSize: "16px"
+  }
+};
+
+const Technologies = props => {
+  const { classes } = props;
+
+  return (
+    <div className="center">
+      <h2>Technologies I use and love: </h2>
+      <div className="icon-container">
+        <div className="size">
+          <div className="tile small" id="html" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="css" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="js" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="meteor" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="react" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="node" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="graphql" />
+        </div>
+        <div className="size">
+          <div className="tile small" id="mongo" />
+        </div>
+      </div>
+  );
+};
+
+Technologies.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Technologies);
+
+/*const Technologies = () => (
   <div className="center">
     <h2>Technologies I use and love: </h2>
     <div className="icon-container">
@@ -89,4 +177,4 @@ const Technologies = () => (
     `}</style>
   </div>
 );
-export default Technologies;
+export default Technologies;*/

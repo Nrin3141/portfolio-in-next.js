@@ -35,8 +35,8 @@ const Developer = props => {
   const { classes } = props;
 
   return (
-    <div className="outer">
-      <div className="wrapper">
+    <div className={classes.outer}>
+      <div className={classes.wrapper}>
         <AboutMe />
         <Projects />
         <Technologies />
