@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import ReCAPTCHA from "react-google-recaptcha";
 import classNames from "classnames";
+import ReCAPTCHA from "react-google-recaptcha";
 import { withStyles } from "@material-ui/core/styles";
 import Menu from "../components/Menu";
 import Header from "../components/Headers";
@@ -73,6 +73,7 @@ class OutlinedTextFields extends React.Component {
       subject: "",
       res: false
     };
+    this.recaptchaRef = React.createRef();
   }
   submit = e => {
     e.preventDefault();
@@ -92,12 +93,19 @@ class OutlinedTextFields extends React.Component {
       }
     })
       .then(res => res.json())
+      .then(res => console.log(res))
       .then(res => this.setState({ res }));
   };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     });
+  };
+
+  onSubmit = () => {
+    const recaptchaValue = this.recaptchaRef.current.getValue();
+    this.props.onSubmit(recaptchaValue);
   };
   render() {
     const { classes } = this.props;
@@ -172,10 +180,15 @@ class OutlinedTextFields extends React.Component {
                 className={classes.message}
                 variant="outlined"
               />
-              <div
-                className="g-recaptcha"
-                data-sitekey={process.env.RECAPTCHA_API_PUBLIC_KEY}
+              <ReCAPTCHA
+                ref={this.recaptchaRef}
+                sitekey="6LfOuqIUAAAAALhxD0-qBaJNQHsVVyktV_Uo3DUK"
               />
+              {/*<div
+                className="g-recaptcha"
+                data-sitekey={process.env.RECAPTCHA_API_PUBLIC_KEY.toString()}
+                data-callback={this.successfulForm}
+              />*/}
               <Button
                 variant="contained"
                 color="secondary"

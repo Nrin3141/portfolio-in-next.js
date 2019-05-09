@@ -23,7 +23,6 @@ app
     server.use(express.json());
     server.use(express.urlencoded());
     server.post("/contact", (req, res) => {
-      console.log(req.body.captcha);
       if (
         req.body.captcha === undefined ||
         req.body.captcha === "" ||
