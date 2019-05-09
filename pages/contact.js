@@ -62,7 +62,6 @@ const styles = {
     width: "78vw"
   }
 };
-
 class OutlinedTextFields extends React.Component {
   constructor(props) {
     super(props);
@@ -93,7 +92,6 @@ class OutlinedTextFields extends React.Component {
       }
     })
       .then(res => res.json())
-      .then(res => console.log(res))
       .then(res => this.setState({ res }));
   };
 
@@ -102,7 +100,9 @@ class OutlinedTextFields extends React.Component {
       [name]: event.target.value
     });
   };
-
+  componentDidMount = () => {
+    this.grecaptchaObject = window.grecaptcha;
+  };
   onSubmit = () => {
     const recaptchaValue = this.recaptchaRef.current.getValue();
     this.props.onSubmit(recaptchaValue);
@@ -112,8 +112,6 @@ class OutlinedTextFields extends React.Component {
 
     return (
       <div className={classes.outer}>
-        <Header />
-        <Menu />
         {this.state.res && !this.state.res.responseCode ? (
           <Paper className={classes.paper}>
             <h1>Good news! </h1>
@@ -183,7 +181,9 @@ class OutlinedTextFields extends React.Component {
               <ReCAPTCHA
                 ref={this.recaptchaRef}
                 sitekey="6LfOuqIUAAAAALhxD0-qBaJNQHsVVyktV_Uo3DUK"
+                grecaptcha={this.grecaptchaObject}
               />
+
               {/*<div
                 className="g-recaptcha"
                 data-sitekey={process.env.RECAPTCHA_API_PUBLIC_KEY.toString()}
