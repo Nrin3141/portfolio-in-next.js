@@ -43,8 +43,9 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     background: "white",
-    padding: "1em 10em",
+    padding: "1em 20vw",
     flexDirection: "row",
     flexWrap: "wrap"
     /*-webkit-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
