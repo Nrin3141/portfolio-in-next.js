@@ -76,7 +76,7 @@ class Parallax extends React.Component {
           .size {
             position: relative;
             z-index: 1;
-            height: 50vh;
+            height: 40vh;
           }
           .a {
             width: 100%;

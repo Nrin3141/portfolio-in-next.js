@@ -12,11 +12,7 @@ class Main extends React.Component {
       wait: 0,
       counter: 0,
       headlines: ["Programmer", "Photographer", "Traveler"],
-      hrefs: [
-        server + "/coding",
-        server + "/photography",
-        "https://photodyssee.com"
-      ]
+      hrefs: ["/coding", "/photography", "https://photodyssee.com"]
     };
   }
   componentDidMount = () => {

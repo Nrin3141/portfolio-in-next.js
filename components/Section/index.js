@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 import _JSXStyle from "styled-jsx/style";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import Link from "next/link";
 
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+
+export const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#4CAF50"
+    }
+  },
+  typography: {
+    useNextVariants: true
+  }
+});
 const getImagePath = w => {
   if (w >= 2400) {
     return "images";
@@ -10,7 +29,29 @@ const getImagePath = w => {
   }
   return "sizes/2400";
 };
-
+const styles = {
+  button: {
+    marginTop: "40px",
+    padding: "0 40px",
+    textDecoration: "none",
+    color: "black",
+    display: "relative",
+    zIndex: 2,
+    padding: "10px 20px"
+  },
+  white: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    background: "white",
+    padding: "1em 10em",
+    flexDirection: "row",
+    flexWrap: "wrap"
+    /*-webkit-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);*/
+  }
+};
 class Section extends React.Component {
   constructor(props) {
     super(props);
@@ -53,22 +94,33 @@ class Section extends React.Component {
   };
   render() {
     let size = this.state.size;
+    let classes = this.props.classes;
     return (
       <div>
         <div className="absolute">
-          <div className="white">
+          <Paper className={classes.white}>
             <h2>I am a</h2>
             <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
             <div className="blinking-dash" />
-          </div>
-          <a
-            href={this.props.href}
-            target={
-              this.props.href === "https://photodyssee.com" ? "_blank" : "_self"
-            }
-          >
-            <p>See for yourself!</p>
-          </a>
+          </Paper>
+          <MuiThemeProvider theme={theme}>
+            <Link
+              href={this.props.href}
+              target={
+                this.props.href === "https://photodyssee.com"
+                  ? "_blank"
+                  : "_self"
+              }
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                See for yourself!
+              </Button>
+            </Link>
+          </MuiThemeProvider>
         </div>
         {this.props.images.map(image => (
           <div
@@ -89,15 +141,7 @@ class Section extends React.Component {
             justify-content: center;
             text-align: center;
           }
-          .white {
-            background: white;
-            padding: 1em 1em;
-            flex-direction: row;
-            flex-wrap: wrap;
-            -webkit-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
-            -moz-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
-            box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
-          }
+
           #programmer {
             background: url("static/${size}/programmer.jpg");
             background-size: 200%;
@@ -182,19 +226,15 @@ class Section extends React.Component {
           @media (orientation: portrait) {
             background-size: auto 100vh;
           }
-          a {
-            margin-top: 40px;
-            background: #F9DC5C;
-            padding: 0 40px;
-            text-decoration: none;
-            color: black;
-            display: relative;
-            z-index: 2;
-          }
+
 
         `}</style>
       </div>
     );
   }
 }
-export default Section;
+Section.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Section);

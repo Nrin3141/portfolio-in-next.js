@@ -1,7 +1,18 @@
 import _JSXStyle from "styled-jsx/style";
-
-const Projects = () => (
-  <div className="center">
+import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+const styles = {
+  white: {
+    width: "80vw",
+    margin: 10,
+    padding: 20,
+    textAlign: "center"
+  }
+};
+const Projects = ({ classes }) => (
+  <Paper className={classes.white}>
     <h2>
       <i className="fas fa-code" /> Projects
     </h2>
@@ -34,7 +45,6 @@ const Projects = () => (
     <style jsx>{`
       h2 {
         text-align: center;
-        margin-top: 50px;
       }
       .icon-container {
         display: flex;
@@ -44,8 +54,9 @@ const Projects = () => (
         flex-wrap: wrap;
       }
       .tile {
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
+        background-position: center;
         margin: 5px;
       }
       a {
@@ -112,8 +123,7 @@ const Projects = () => (
         }
       }
       #img {
-        background-image: url("/static/images/img.jpg");
-        background-size: cover;
+        background-image: url("/static/images/profile.jpg");
       }
       #chess {
         background-image: url("/static/images/chess.png");
@@ -125,7 +135,10 @@ const Projects = () => (
         background-image: url("/static/images/snake.png");
       }
     `}</style>
-  </div>
+  </Paper>
 );
+Projects.propTypes = {
+  classes: PropTypes.object.isRequired
+};
 
-export default Projects;
+export default withStyles(styles)(Projects);

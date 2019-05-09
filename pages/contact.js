@@ -6,6 +6,7 @@ import Header from "../components/Headers";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import _JSXStyle from "styled-jsx/style";
 
 const styles = {
   container: {
@@ -105,7 +106,6 @@ class OutlinedTextFields extends React.Component {
               id="outlined-name"
               label="Name"
               name="name"
-              className={classes.textField}
               value={this.state.name}
               onChange={this.handleChange("name")}
               margin="normal"
@@ -115,7 +115,6 @@ class OutlinedTextFields extends React.Component {
               id="outlined-email"
               label="Email"
               name="email"
-              className={classes.textField}
               value={this.state.email}
               onChange={this.handleChange("email")}
               margin="normal"
@@ -127,7 +126,6 @@ class OutlinedTextFields extends React.Component {
               placeholder="Enter your message here!"
               name="message"
               multiline
-              className={classes.textField}
               margin="normal"
               variant="outlined"
             />
