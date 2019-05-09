@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
     "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^8.0.4",
+    "next": "latest",
     "nodemailer": "^6.1.1",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "^3.0.0",
     "sharp": "^0.22.0",
-    "styled-jsx": "^3.2.1"
+    "styled-jsx": "^3.2.1",
+    "jss": "^10.0.0-alpha.14",
+    "react-jss": "^8.1.0",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest"
   },
   "scripts": {
     "dev": "node server.js",
@@ -22,9 +24,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "devDependencies": {
-    "styled-jsx": "^3.2.1"
   },
   "babel": {
     "presets": [

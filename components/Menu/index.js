@@ -11,6 +11,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Photography from "@material-ui/icons/PhotoCamera";
 import Home from "@material-ui/icons/Home";
 import Coding from "@material-ui/icons/Code";
+import Contact from "@material-ui/icons/Send";
+
 import Link from "next/link";
 import _JSXStyle from "styled-jsx/style";
 
@@ -39,7 +41,7 @@ class TemporaryDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          {["Home", "Photography", "Coding"].map((text, index) => {
+          {["Home", "Photography", "Coding", "Contact"].map((text, index) => {
             return (
               <Link
                 key={text}
@@ -48,11 +50,13 @@ class TemporaryDrawer extends React.Component {
                 <ListItem button>
                   <ListItemIcon>
                     {text === "Photography" ? (
-                      <Photography />
+                      <Photography color="primary" />
                     ) : text === "Coding" ? (
-                      <Coding />
+                      <Coding color="primary" />
+                    ) : text === "Home" ? (
+                      <Home color="primary" />
                     ) : (
-                      <Home />
+                      <Contact color="primary" />
                     )}
                   </ListItemIcon>
                   <ListItemText primary={text} />

@@ -45,12 +45,18 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "white",
-    padding: "1em 20vw",
-    flexDirection: "row",
-    flexWrap: "wrap"
+    padding: "1em 10em",
+    flexWrap: "wrap",
+    minWidth: "20vw"
+
     /*-webkit-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);*/
+  },
+  dash: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center"
   }
 };
 class Section extends React.Component {
@@ -100,9 +106,10 @@ class Section extends React.Component {
       <div>
         <div className="absolute">
           <Paper className={classes.white}>
-            <h2>I am a</h2>
-            <h2 style={{ marginLeft: "0.4em" }}>{this.props.headline}</h2>
-            <div className="blinking-dash" />
+            <h2 style={{ marginLeft: "0.4em" }}>I am a</h2>
+            <h2 style={{ marginLeft: "0.4em" }} className={classes.dash}>
+              {this.props.headline} <div className="blinking-dash" />
+            </h2>
           </Paper>
           <MuiThemeProvider theme={theme}>
             <Link href={this.props.href}>
@@ -172,11 +179,11 @@ class Section extends React.Component {
           }
           .blinking-dash {
             background: black;
-            line-height: 17px;
+            line-height: 1em;
             margin-left: 3px;
             animation: blink 0.8s infinite;
             width: 3px;
-            height: 15px;
+            height: 1em;
           }
           h2 {
             font-size: 1em;

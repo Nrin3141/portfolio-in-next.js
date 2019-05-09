@@ -6,41 +6,57 @@ import Header from "../components/Headers";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import Link from "next/link";
+
+import { theme } from "../config/theme.js";
 import _JSXStyle from "styled-jsx/style";
 
 const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     flexWrap: "wrap"
   },
+  inputs: {
+    display: "flex",
+    width: "80vw",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row"
+    }
+  },
+  paper: {
+    textAlign: "center",
+    padding: 20,
+    margin: 20
+  },
   button: {
-    background: "blue",
     margin: "20px 0",
     padding: 10,
     width: "50%",
     alignSelf: "center"
-  },
-  dense: {
-    marginTop: 16
-  },
-  menu: {
-    width: 200
   },
   outer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "100%",
+    minHeight: "100%",
     position: "absolute",
     top: 0,
     left: 0,
     margin: 0
   },
-  form: {
-    display: "flex",
-    flexDirection: "column"
+  input: {
+    flexGrow: 20,
+    margin: "1vw"
+  },
+  message: {
+    width: "78vw"
   }
 };
 
@@ -88,51 +104,72 @@ class OutlinedTextFields extends React.Component {
         <Header />
         <Menu />
         {this.state.res ? (
-          <div>
-            <h2>Good news {this.state.res.name} </h2>
-            <h2> Your message is on the way ...</h2>
-            <Button className={classes.button} href="/">
-              Home
-            </Button>
-          </div>
+          <Paper className={classes.paper}>
+            <h1>Good news! </h1>
+            <h2 style={{ fontWeight: "100" }}>
+              Your message is on the way ...
+            </h2>
+            <Link href="/">
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                Home
+              </Button>
+            </Link>
+          </Paper>
         ) : (
-          <form
-            onSubmit={this.submit}
-            className={classes.container}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              id="outlined-name"
-              label="Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange("name")}
-              margin="normal"
-              variant="outlined"
-            />
-            <TextField
-              id="outlined-email"
-              label="Email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange("email")}
-              margin="normal"
-              variant="outlined"
-            />
-            <TextField
-              id="outlined-textarea"
-              label="Message"
-              placeholder="Enter your message here!"
-              name="message"
-              multiline
-              margin="normal"
-              variant="outlined"
-            />
-            <Button className={classes.button} id="submit" type="submit">
-              Get in touch
-            </Button>
-          </form>
+          <Paper className={classes.paper}>
+            <form
+              onSubmit={this.submit}
+              className={classes.container}
+              noValidate
+              autoComplete="off"
+            >
+              <div className={classes.inputs}>
+                <TextField
+                  id="outlined-name"
+                  label="Name"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.handleChange("name")}
+                  className={classes.input}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  id="outlined-email"
+                  label="Email"
+                  name="email"
+                  value={this.state.email}
+                  className={classes.input}
+                  onChange={this.handleChange("email")}
+                  margin="normal"
+                  variant="outlined"
+                />
+              </div>
+              <TextField
+                id="outlined-textarea"
+                label="Message"
+                name="message"
+                multiline
+                rowsMax="10"
+                margin="normal"
+                className={classes.message}
+                variant="outlined"
+              />
+              <Button
+                variant="contained"
+                color="secondary"
+                id="submit"
+                type="submit"
+                className={classes.button}
+              >
+                Get in touch
+              </Button>
+            </form>
+          </Paper>
         )}
       </div>
     );
