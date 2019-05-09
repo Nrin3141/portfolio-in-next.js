@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
-    "dotenv": "^8.0.0",
+    "dotenv-webpack": "1.5.7",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
     "isomorphic-unfetch": "^3.0.0",
@@ -22,7 +22,7 @@
     "styled-jsx": "^3.2.1"
   },
   "scripts": {
-    "dev": "node -r dotenv/config server.js",
+    "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
