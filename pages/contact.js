@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Menu from "../components/Menu";
@@ -69,7 +70,8 @@ class OutlinedTextFields extends React.Component {
       multiline: "",
       name: "",
       email: "",
-      subject: ""
+      subject: "",
+      res: false
     };
   }
   submit = e => {
@@ -78,10 +80,10 @@ class OutlinedTextFields extends React.Component {
       email: e.target.email.value,
       message: e.target.message.value,
       name: e.target.name.value,
-      subject: e.target.subject.value
+      subject: e.target.subject.value,
+      captcha: grecaptcha.getResponse()
     };
-    console.log(data);
-    /*fetch("/contact", {
+    fetch("/contact", {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -90,16 +92,13 @@ class OutlinedTextFields extends React.Component {
       }
     })
       .then(res => res.json())
-      .then(res => this.setState({ res })); //assign state to array res*/
-    this.setState({ res: true });
+      .then(res => this.setState({ res }));
   };
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     });
   };
-
   render() {
     const { classes } = this.props;
 
@@ -107,7 +106,7 @@ class OutlinedTextFields extends React.Component {
       <div className={classes.outer}>
         <Header />
         <Menu />
-        {this.state.res ? (
+        {this.state.res && !this.state.res.responseCode ? (
           <Paper className={classes.paper}>
             <h1>Good news! </h1>
             <h2 style={{ fontWeight: "100" }}>
@@ -172,6 +171,10 @@ class OutlinedTextFields extends React.Component {
                 margin="normal"
                 className={classes.message}
                 variant="outlined"
+              />
+              <div
+                className="g-recaptcha"
+                data-sitekey={process.env.RECAPTCHA_API_PUBLIC_KEY}
               />
               <Button
                 variant="contained"
