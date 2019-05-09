@@ -2,6 +2,7 @@ import Menu from "../Menu";
 import Head from "../Headers";
 import Social from "../Social";
 import Parallax from "../Parallax";
+import _JSXStyle from "styled-jsx/style";
 
 const Layout = props => (
   <div>

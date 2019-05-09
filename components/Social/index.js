@@ -1,65 +1,89 @@
-const Social = () => (
-  <div className="footer center">
-    <div className="icon-container">
-      <a className="social" href="https://github.com/Nrin3141" target="blank">
-        Github <i className="fab fa-github" />
-      </a>
-      <a
-        className="social"
-        href="https://www.linkedin.com/in/ricotrebeljahr"
-        target="blank"
-      >
-        Linked
-        <i className="fab fa-linkedin" />
-      </a>
-      <a
-        className="social"
-        href="https://stackoverflow.com/story/ricotrebeljahr"
-        target="blank"
-      >
-        <i className="fab fa-stack-overflow" /> Stackoverflow
-      </a>
-      <a className="social" href="https://codepen.io/Nrin/" target="blank">
-        Codepen <i className="fab fa-codepen" />
-      </a>
-    </div>
-    <style jsx>{`
-      h3 {
-        color: #f9dc5c;
-      }
-      .footer {
-        position: relative;
-        z-index: 1;
-        background: rgb(40, 40, 40);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0 20px 0;
-      }
-      .icon-container {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-      }
-      .social {
-        color: #f9dc5c;
-        text-decoration: none;
-      }
-      .social:hover {
-        color: white;
-      }
-      a {
-        margin: 10px;
-      }
-      @media only screen and (max-width: 500px) {
-        .icon-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
-        }
-      }
-    `}</style>
-  </div>
-);
-export default Social;
+import React from "react";
+import PropTypes from "prop-types";
+import Head from "../Headers";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import _JSXStyle from "styled-jsx/style";
+
+const styles = {
+  appBar: {
+    background: "rgb(80, 80, 80)",
+    position: "relative",
+    zIndex: 3
+  },
+  toolbar: {
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  Button: {
+    color: "white",
+    padding: 10,
+    textDecoration: "none",
+    textTransform: "capitalize"
+  }
+};
+
+class BottomAppBar extends React.Component {
+  render() {
+    const { classes } = this.props;
+    const content = (
+      <div>
+        <AppBar position="fixed" className={classes.appBar}>
+          <Toolbar className={classes.toolbar}>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
+              href={"https://github.com/Nrin3141"}
+              target="blank"
+              rel="noopener"
+            >
+              Github <i className="fab fa-github" />
+            </Button>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
+              href="https://www.linkedin.com/in/ricotrebeljahr"
+              target="blank"
+              rel="noopener"
+            >
+              Linked
+              <i className="fab fa-linkedin" />
+            </Button>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
+              href="https://stackoverflow.com/story/ricotrebeljahr"
+              target="blank"
+              rel="noopener"
+            >
+              <i className="fab fa-stack-overflow" /> Stackoverflow
+            </Button>
+            <Button
+              className={classes.Button}
+              style={{ textDecoration: "none" }}
+              href="https://codepen.io/Nrin/"
+              target="blank"
+              rel="noopener"
+            >
+              Codepen <i className="fab fa-codepen" />
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+    return (
+      <div>
+        <Head />
+        {content}
+      </div>
+    );
+  }
+}
+
+BottomAppBar.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(BottomAppBar);

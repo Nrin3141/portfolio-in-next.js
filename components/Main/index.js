@@ -3,6 +3,7 @@ import Headline from "../Headline";
 import Section from "../Section";
 import { server } from "../../config";
 import Menu from "../Menu";
+import _JSXStyle from "styled-jsx/style";
 
 class Main extends React.Component {
   constructor(props) {
@@ -11,11 +12,7 @@ class Main extends React.Component {
       wait: 0,
       counter: 0,
       headlines: ["Programmer", "Photographer", "Traveler"],
-      hrefs: [
-        server + "/coding",
-        server + "/photography",
-        "https://photodyssee.com"
-      ]
+      hrefs: ["/coding", "/photography", "https://photodyssee.com"]
     };
   }
   componentDidMount = () => {

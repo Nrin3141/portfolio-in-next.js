@@ -1,5 +1,18 @@
-const Technologies = () => (
-  <div className="center">
+import _JSXStyle from "styled-jsx/style";
+import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+const styles = {
+  white: {
+    width: "80%",
+    margin: 10,
+    padding: 20,
+    textAlign: "center"
+  }
+};
+const Technologies = ({ classes }) => (
+  <Paper className={classes.white}>
     <h2>Technologies I use and love: </h2>
     <div className="icon-container">
       <div className="size">
@@ -26,12 +39,37 @@ const Technologies = () => (
       <div className="size">
         <div className="tile small" id="mongo" />
       </div>
+      <div className="size">
+        <div className="tile small" id="bash" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="material" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="next" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="p5" />
+      </div>
+      <div className="size">
+        <div className="tile small" id="atom" />
+      </div>
     </div>
 
     <style jsx>{`
-      h2 {
-        margin-top: 50px;
+      .icon-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
       }
+      .tile {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
       .size {
         height: 10vw;
         width: 10vw;
@@ -61,9 +99,23 @@ const Technologies = () => (
           height: 22vw;
         }
       }
-
+      #material {
+        background-image: url("/static/images/material.png");
+      }
+      #atom {
+        background-image: url("/static/images/atom.png");
+      }
       #html {
         background-image: url("/static/images/html5.svg");
+      }
+      #bash {
+        background-image: url("/static/images/bash.png");
+      }
+      #p5 {
+        background-image: url("/static/images/p5js.png");
+      }
+      #next {
+        background-image: url("/static/images/nextjs.png");
       }
       #css {
         background-image: url("/static/images/css3.svg");
@@ -87,6 +139,10 @@ const Technologies = () => (
         background-image: url("/static/images/react.svg");
       }
     `}</style>
-  </div>
+  </Paper>
 );
-export default Technologies;
+Technologies.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Technologies);
