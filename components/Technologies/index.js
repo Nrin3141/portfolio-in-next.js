@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 const styles = {
   white: {
-    maxWidth: "80vw",
+    width: "80%",
     margin: 10,
     padding: 20,
     textAlign: "center"

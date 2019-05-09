@@ -21,9 +21,7 @@ class Parallax extends React.Component {
         clearTimeout(this.state.resizeTaskId);
       }
       this.setState({
-        resizeTaskId: setTimeout(() => {
-          this.resize();
-        }, 100)
+        resizeTaskId: setTimeout(this.resize, 1000)
       });
     });
   };
@@ -88,7 +86,6 @@ class Parallax extends React.Component {
           iframe {
             position: fixed;
             z-index: 0;
-            max-width: 100%;
             overflow: hidden;
           }
           .fixed {

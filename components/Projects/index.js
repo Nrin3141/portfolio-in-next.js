@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 const styles = {
   white: {
-    width: "80vw",
+    width: "80%",
     margin: 10,
     padding: 20,
     textAlign: "center"
@@ -19,7 +19,9 @@ const Projects = ({ classes }) => (
     <div className="icon-container">
       <a className="size" href="https://chess.ricotrebeljahr.de" target="blank">
         <div className="tile large" id="chess" />
-        <div className="absolute">View</div>
+        <div className="absolute">
+          <h2>Curious?</h2>
+        </div>
       </a>
       <a
         className="size"
@@ -27,7 +29,9 @@ const Projects = ({ classes }) => (
         target="blank"
       >
         <div className="tile large" id="tictactoe" />
-        <div className="absolute">View</div>
+        <div className="absolute">
+          <h2>View me!</h2>
+        </div>
       </a>
       <a
         className="size"
@@ -35,11 +39,15 @@ const Projects = ({ classes }) => (
         target="blank"
       >
         <div className="tile large" id="snake" />
-        <div className="absolute">View</div>
+        <div className="absolute">
+          <h2>Check me out!</h2>
+        </div>
       </a>
       <a className="size" href="https://photodyssee.com" target="blank">
         <div className="tile large" id="img" />
-        <div className="absolute">View</div>
+        <div className="absolute">
+          <h2>Take a look!</h2>
+        </div>
       </a>
     </div>
     <style jsx>{`
@@ -57,7 +65,6 @@ const Projects = ({ classes }) => (
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        margin: 5px;
       }
       a {
         text-decoration: none;
@@ -70,56 +77,60 @@ const Projects = ({ classes }) => (
         background: rgb(20, 20, 20);
         color: white;
         display: flex;
-        padding: 6% 12%;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
         position: absolute;
         text-align: center;
-      }
-      .size:hover > .large {
-        width: 20vw;
-        height: 20vw;
-        opacity: 0.65;
       }
       .size {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 20vw;
-        width: 20vw;
         position: relative;
+        height: 80vw;
+        width: 80vw;
+        padding: 0;
+        margin: 5px;
+      }
+      .size:hover {
+        background-color: black;
       }
       .large {
-        width: 18vw;
-        height: 18vw;
+        width: 80vw;
+        height: 80vw;
       }
-
-      @media only screen and (max-width: 800px) {
+      .size:hover > .large {
+        width: 80vw;
+        height: 80vw;
+        opacity: 0.7;
+      }
+      @media only screen and (min-width: 400px) {
         .size {
-          height: 40vw;
-          width: 40vw;
-          margin-top: 5%;
+          height: 34vw;
+          width: 34vw;
         }
         .large {
-          width: 40vw;
-          height: 40vw;
+          width: 32vw;
+          height: 32vw;
         }
         .size:hover > .large {
-          width: 40vw;
-          height: 40vw;
+          width: 34vw;
+          height: 34vw;
         }
       }
-      @media only screen and (max-width: 400px) {
-        .size {
-          height: 80vw;
-          width: 80vw;
-          margin-top: 5%;
-        }
+      @media only screen and (min-width: 1000px) {
         .large {
-          width: 80vw;
-          height: 80vw;
+          width: 15vw;
+          height: 15vw;
+        }
+        .size {
+          height: 16vw;
+          width: 16vw;
         }
         .size:hover > .large {
-          width: 80vw;
-          height: 80vw;
+          width: 16vw;
+          height: 16vw;
         }
       }
       #img {
