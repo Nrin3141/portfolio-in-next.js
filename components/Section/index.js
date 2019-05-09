@@ -13,7 +13,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#4CAF50"
+      main: "#f9dc5c"
     }
   },
   typography: {
@@ -104,15 +104,13 @@ class Section extends React.Component {
             <div className="blinking-dash" />
           </Paper>
           <MuiThemeProvider theme={theme}>
-            <Link
-              href={this.props.href}
-              target={
-                this.props.href === "https://photodyssee.com"
-                  ? "_blank"
-                  : "_self"
-              }
-            >
+            <Link href={this.props.href}>
               <Button
+                href={
+                  this.props.href === "https://photodyssee.com"
+                    ? this.props.href
+                    : ""
+                }
                 variant="contained"
                 color="primary"
                 className={classes.button}
