@@ -3,6 +3,7 @@
 #custom ignores
 createDifferentImageSizes.js
 /.next
+.env
 # dependencies
 /node_modules
 /.pnp

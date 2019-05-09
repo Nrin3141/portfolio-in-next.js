@@ -3,7 +3,6 @@ import Header from "../components/Headers";
 
 const Home = () => (
   <div>
-    <Header />
     <Main />
   </div>
 );

@@ -18,7 +18,6 @@ export default class PhotographyPage extends Component {
   render() {
     return (
       <div>
-        <Header />
         <Gallery images={this.state.images} />
       </div>
     );

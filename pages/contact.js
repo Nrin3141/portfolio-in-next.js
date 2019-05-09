@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import ReCAPTCHA from "react-google-recaptcha";
 import { withStyles } from "@material-ui/core/styles";
 import Menu from "../components/Menu";
 import Header from "../components/Headers";
@@ -44,12 +45,14 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
+    width: "100vw",
     minHeight: "100%",
     position: "absolute",
     top: 0,
     left: 0,
-    margin: 0
+    margin: 0,
+    padding: 0,
+    overflow: "hidden"
   },
   input: {
     flexGrow: 20,
@@ -59,25 +62,28 @@ const styles = {
     width: "78vw"
   }
 };
-
 class OutlinedTextFields extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       multiline: "",
       name: "",
-      email: ""
+      email: "",
+      subject: "",
+      res: false
     };
+    this.recaptchaRef = React.createRef();
   }
   submit = e => {
     e.preventDefault();
     const data = {
       email: e.target.email.value,
       message: e.target.message.value,
-      name: e.target.name.value
+      name: e.target.name.value,
+      subject: e.target.subject.value,
+      captcha: grecaptcha.getResponse()
     };
-    console.log(data);
-    /*fetch("/contact", {
+    fetch("/contact", {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -86,8 +92,8 @@ class OutlinedTextFields extends React.Component {
       }
     })
       .then(res => res.json())
-      .then(res => this.setState({ res })); //assign state to array res*/
-    this.setState({ res: true });
+      .then(res => this.setState({ res }));
+    const recaptchaValue = this.recaptchaRef.current.reset();
   };
 
   handleChange = name => event => {
@@ -95,15 +101,22 @@ class OutlinedTextFields extends React.Component {
       [name]: event.target.value
     });
   };
-
+  componentDidUpdate = () => {
+    console.log(this.state.res);
+  };
+  componentDidMount = () => {
+    this.grecaptchaObject = window.grecaptcha;
+  };
+  onSubmit = () => {
+    const recaptchaValue = this.recaptchaRef.current.getValue();
+    this.props.onSubmit(recaptchaValue);
+  };
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.outer}>
-        <Header />
-        <Menu />
-        {this.state.res ? (
+        {this.state.res && !this.state.res.responseCode ? (
           <Paper className={classes.paper}>
             <h1>Good news! </h1>
             <h2 style={{ fontWeight: "100" }}>
@@ -139,6 +152,10 @@ class OutlinedTextFields extends React.Component {
                   variant="outlined"
                 />
                 <TextField
+                  error={
+                    this.state.res.errors &&
+                    this.state.res.errors[0].param === "email"
+                  }
                   id="outlined-email"
                   label="Email"
                   name="email"
@@ -150,6 +167,16 @@ class OutlinedTextFields extends React.Component {
                 />
               </div>
               <TextField
+                id="outlined-subject"
+                label="Subject"
+                name="subject"
+                value={this.state.subject}
+                onChange={this.handleChange("subject")}
+                className={classes.message}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
                 id="outlined-textarea"
                 label="Message"
                 name="message"
@@ -159,6 +186,17 @@ class OutlinedTextFields extends React.Component {
                 className={classes.message}
                 variant="outlined"
               />
+              <ReCAPTCHA
+                ref={this.recaptchaRef}
+                sitekey="6LfOuqIUAAAAALhxD0-qBaJNQHsVVyktV_Uo3DUK"
+                grecaptcha={this.grecaptchaObject}
+              />
+
+              {/*<div
+                className="g-recaptcha"
+                data-sitekey={process.env.RECAPTCHA_API_PUBLIC_KEY.toString()}
+                data-callback={this.successfulForm}
+              />*/}
               <Button
                 variant="contained"
                 color="secondary"
