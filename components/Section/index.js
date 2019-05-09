@@ -48,6 +48,7 @@ const styles = {
     padding: "1em 10em",
     flexWrap: "wrap",
     minWidth: "20vw"
+
     /*-webkit-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 72px 1px rgba(0,0,0,0.75);*/
