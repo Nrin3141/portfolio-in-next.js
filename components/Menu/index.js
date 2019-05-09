@@ -48,11 +48,11 @@ class TemporaryDrawer extends React.Component {
                 <ListItem button>
                   <ListItemIcon>
                     {text === "Photography" ? (
-                      <Photography />
+                      <Photography color="primary" />
                     ) : text === "Coding" ? (
-                      <Coding />
+                      <Coding color="primary" />
                     ) : (
-                      <Home />
+                      <Home color="primary" />
                     )}
                   </ListItemIcon>
                   <ListItemText primary={text} />

@@ -15,7 +15,6 @@ const styles = {
     flexWrap: "wrap"
   },
   button: {
-    background: "blue",
     margin: "20px 0",
     padding: 10,
     width: "50%",
@@ -32,15 +31,13 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "100%",
     position: "absolute",
     top: 0,
     left: 0,
     margin: 0
   },
-  form: {
-    display: "flex",
-    flexDirection: "column"
+  input: {
+    margin: "5px"
   }
 };
 
@@ -91,7 +88,12 @@ class OutlinedTextFields extends React.Component {
           <div>
             <h2>Good news {this.state.res.name} </h2>
             <h2> Your message is on the way ...</h2>
-            <Button className={classes.button} href="/">
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+              href="/"
+            >
               Home
             </Button>
           </div>
@@ -102,34 +104,45 @@ class OutlinedTextFields extends React.Component {
             noValidate
             autoComplete="off"
           >
-            <TextField
-              id="outlined-name"
-              label="Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange("name")}
-              margin="normal"
-              variant="outlined"
-            />
-            <TextField
-              id="outlined-email"
-              label="Email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange("email")}
-              margin="normal"
-              variant="outlined"
-            />
+            <div>
+              <TextField
+                id="outlined-name"
+                label="Name"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange("name")}
+                className={classes.input}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-email"
+                label="Email"
+                name="email"
+                value={this.state.email}
+                className={classes.input}
+                onChange={this.handleChange("email")}
+                margin="normal"
+                variant="outlined"
+              />
+            </div>
             <TextField
               id="outlined-textarea"
               label="Message"
-              placeholder="Enter your message here!"
               name="message"
               multiline
+              rowsMax="10"
               margin="normal"
+              className={classes.input}
               variant="outlined"
             />
-            <Button className={classes.button} id="submit" type="submit">
+            <Button
+              variant="contained"
+              color="secondary"
+              id="submit"
+              type="submit"
+              className={classes.button}
+            >
               Get in touch
             </Button>
           </form>

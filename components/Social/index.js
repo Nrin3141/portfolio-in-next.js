@@ -6,6 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import _JSXStyle from "styled-jsx/style";
+import { theme } from "../../config/theme.js";
 
 const styles = {
   appBar: {
@@ -14,8 +15,12 @@ const styles = {
     zIndex: 3
   },
   toolbar: {
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row"
+    }
   },
   Button: {
     color: "white",
