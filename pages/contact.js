@@ -93,12 +93,16 @@ class OutlinedTextFields extends React.Component {
     })
       .then(res => res.json())
       .then(res => this.setState({ res }));
+    const recaptchaValue = this.recaptchaRef.current.reset();
   };
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     });
+  };
+  componentDidUpdate = () => {
+    console.log(this.state.res);
   };
   componentDidMount = () => {
     this.grecaptchaObject = window.grecaptcha;
@@ -148,6 +152,10 @@ class OutlinedTextFields extends React.Component {
                   variant="outlined"
                 />
                 <TextField
+                  error={
+                    this.state.res.errors &&
+                    this.state.res.errors[0].param === "email"
+                  }
                   id="outlined-email"
                   label="Email"
                   name="email"
