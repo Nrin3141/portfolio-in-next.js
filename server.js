@@ -24,33 +24,21 @@ app
     server.use(express.json());
 
     server.post("/contact", (req, res) => {
-      //console.log(req.body);
       let output = `
-      <head>
-      <style>
-      h1{
-        color: blue;
-      }</style>
-      </head>
-      <h1>New Mail from Portfolio Website</h1>
-      <h2>Contact</h2>
+      <h2>Contact Info</h2>
       <h3>Name: ${req.body.name}</h3>
       <h3>Email: ${req.body.email}</h3>
-      <h3>Message:</h3>
+      <h2>Message:</h3>
       <p>${req.body.message}</p>
       `;
       async function main() {
-        // Generate test SMTP service account from ethereal.email
-        // Only needed if you don't have a real mail account for testing
-
-        // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
           host: "ricotrebeljahr.de",
           port: 587,
-          secure: false, // true for 465, false for other ports
+          secure: false,
           auth: {
-            user: "rico@ricotrebeljahr.de", // generated ethereal user
-            pass: "Schlangen2" // generated ethereal password
+            user: "rico@ricotrebeljahr.de",
+            pass: "Schlangen2"
           },
           tls: {
             rejectUnauthorized: false
@@ -60,8 +48,8 @@ app
         // send mail with defined transport object
         let info = await transporter.sendMail({
           from: `"Nodemailer" <rico@ricotrebeljahr.de>`, // sender address
-          to: "ricotrebeljahr@yahoo.de, katrin_trebeljahr@yahoo.de", // list of receivers
-          subject: "New Contact",
+          to: "ricotrebeljahr@yahoo.de", // list of receivers
+          subject: req.body.subject,
           text: "Some text", // Subject line
           html: output // plain text body
         });
@@ -79,5 +67,3 @@ app
     console.error(ex.stack);
     process.exit(1);
   });
-
-// async..await is not allowed in global scope, must use a wrapper

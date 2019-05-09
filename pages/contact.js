@@ -44,12 +44,14 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
+    width: "100vw",
     minHeight: "100%",
     position: "absolute",
     top: 0,
     left: 0,
-    margin: 0
+    margin: 0,
+    padding: 0,
+    overflow: "hidden"
   },
   input: {
     flexGrow: 20,
@@ -66,7 +68,8 @@ class OutlinedTextFields extends React.Component {
     this.state = {
       multiline: "",
       name: "",
-      email: ""
+      email: "",
+      subject: ""
     };
   }
   submit = e => {
@@ -74,7 +77,8 @@ class OutlinedTextFields extends React.Component {
     const data = {
       email: e.target.email.value,
       message: e.target.message.value,
-      name: e.target.name.value
+      name: e.target.name.value,
+      subject: e.target.subject.value
     };
     console.log(data);
     /*fetch("/contact", {
@@ -149,6 +153,16 @@ class OutlinedTextFields extends React.Component {
                   variant="outlined"
                 />
               </div>
+              <TextField
+                id="outlined-subject"
+                label="Subject"
+                name="subject"
+                value={this.state.subject}
+                onChange={this.handleChange("subject")}
+                className={classes.message}
+                margin="normal"
+                variant="outlined"
+              />
               <TextField
                 id="outlined-textarea"
                 label="Message"
