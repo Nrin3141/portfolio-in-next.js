@@ -6,7 +6,6 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const nodemailer = require("nodemailer");
-
 //Start the app
 app
   .prepare()
@@ -33,12 +32,12 @@ app
       `;
       async function main() {
         let transporter = nodemailer.createTransport({
-          host: "ricotrebeljahr.de",
+          host: process.env.MAIL_HOST,
           port: 587,
           secure: false,
           auth: {
-            user: "rico@ricotrebeljahr.de",
-            pass: "Schlangen2"
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD
           },
           tls: {
             rejectUnauthorized: false
