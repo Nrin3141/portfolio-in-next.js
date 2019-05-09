@@ -1,7 +1,9 @@
 import { SheetsRegistry } from "jss";
 import { createGenerateClassName } from "@material-ui/core/styles";
+import { theme } from "./theme.js";
 function createPageContext() {
   return {
+    theme,
     // This is needed in order to deduplicate the injection of CSS in the page.
     sheetsManager: new Map(),
     // This is needed in order to inject the critical CSS.

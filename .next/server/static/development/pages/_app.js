@@ -109,12 +109,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jss__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _theme_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme.js */ "./config/theme.js");
+
 
 
 
 
 function createPageContext() {
   return {
+    theme: _theme_js__WEBPACK_IMPORTED_MODULE_3__["theme"],
     // This is needed in order to deduplicate the injection of CSS in the page.
     sheetsManager: new _babel_runtime_corejs2_core_js_map__WEBPACK_IMPORTED_MODULE_0___default.a(),
     // This is needed in order to inject the critical CSS.
@@ -139,6 +142,54 @@ function getPageContext() {
 
   return pageContext;
 }
+
+/***/ }),
+
+/***/ "./config/theme.js":
+/*!*************************!*\
+  !*** ./config/theme.js ***!
+  \*************************/
+/*! exports provided: theme */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theme", function() { return theme; });
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_colors_indigo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/colors/indigo */ "@material-ui/core/colors/indigo");
+/* harmony import */ var _material_ui_core_colors_indigo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_indigo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/colors/red */ "@material-ui/core/colors/red");
+/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["createMuiTheme"])({
+  palette: {
+    primary: _material_ui_core_colors_indigo__WEBPACK_IMPORTED_MODULE_1___default.a,
+    secondary: {
+      main: "#4CAF50"
+    },
+    error: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_2___default.a,
+    // Used by `getContrastText()` to maximize the contrast between the background and
+    // the text.
+    contrastThreshold: 3,
+    // Used to shift a color's luminance by approximately
+    // two indexes within its tonal palette.
+    // E.g., shift from Red 500 to Red 300 or Red 700.
+    tonalOffset: 0.2
+  },
+  overrides: {
+    MuiPaper: {
+      root: {
+        padding: "20px"
+      }
+    }
+  },
+  typography: {
+    useNextVariants: true
+  }
+});
 
 /***/ }),
 
@@ -1026,11 +1077,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "@material-ui/core/CssBaseline");
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-jss/lib/JssProvider */ "react-jss/lib/JssProvider");
-/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _config_materialContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../config/materialContext */ "./config/materialContext.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "@material-ui/core/CssBaseline");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-jss/lib/JssProvider */ "react-jss/lib/JssProvider");
+/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _config_materialContext__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../config/materialContext */ "./config/materialContext.js");
+
 
 
 
@@ -1054,13 +1108,14 @@ function (_App) {
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, MyApp);
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(MyApp).call(this));
-    _this.pageContext = Object(_config_materialContext__WEBPACK_IMPORTED_MODULE_10__["default"])();
+    _this.pageContext = Object(_config_materialContext__WEBPACK_IMPORTED_MODULE_11__["default"])();
     return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(MyApp, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // Remove the server-side injected CSS.
       var jssStyles = document.querySelector("#jss-server-side");
 
       if (jssStyles && jssStyles.parentNode) {
@@ -1073,10 +1128,13 @@ function (_App) {
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
-      return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_7__["Container"], null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_7__["Container"], null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_10___default.a, {
         registry: this.pageContext.sheetsRegistry,
         generateClassName: this.pageContext.generateClassName
-      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8___default.a, null), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__["MuiThemeProvider"], {
+        theme: this.pageContext.theme,
+        sheetsManager: this.pageContext.sheetsManager
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_9___default.a, null), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
         pageContext: this.pageContext
       }, pageProps)))));
     }
@@ -1109,6 +1167,28 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/CssBaseline");
+
+/***/ }),
+
+/***/ "@material-ui/core/colors/indigo":
+/*!**************************************************!*\
+  !*** external "@material-ui/core/colors/indigo" ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/colors/indigo");
+
+/***/ }),
+
+/***/ "@material-ui/core/colors/red":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/colors/red" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/colors/red");
 
 /***/ }),
 

@@ -1,26 +1,24 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import purple from "@material-ui/core/colors/purple";
-import blue from "@material-ui/core/colors/blue";
+import indigo from "@material-ui/core/colors/indigo";
+import red from "@material-ui/core/colors/red";
+
 export const theme = createMuiTheme({
   palette: {
-    primary: purple,
+    primary: indigo,
     secondary: {
       main: "#4CAF50"
-    }
-  },
-  overrides: {
-    MuiButton: {
-      // Name of the rule
-      text: {
-        // Some CSS
-        borderRadius: 3,
-        border: 0,
-        color: "white",
-        height: 48,
-        padding: "0 30px",
-        boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)"
-      }
     },
+    error: red,
+    // Used by `getContrastText()` to maximize the contrast between the background and
+    // the text.
+    contrastThreshold: 3,
+    // Used to shift a color's luminance by approximately
+    // two indexes within its tonal palette.
+    // E.g., shift from Red 500 to Red 300 or Red 700.
+    tonalOffset: 0.2
+  },
+
+  overrides: {
     MuiPaper: {
       root: {
         padding: "20px"
