@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import Link from "next/link";
 
 import { theme } from "../config/theme.js";
 import _JSXStyle from "styled-jsx/style";
@@ -104,16 +105,19 @@ class OutlinedTextFields extends React.Component {
         <Menu />
         {this.state.res ? (
           <Paper className={classes.paper}>
-            <h2>Good news {this.state.res.name} </h2>
-            <h3> Your message is on the way ...</h3>
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              href="/"
-            >
-              Home
-            </Button>
+            <h1>Good news! </h1>
+            <h2 style={{ fontWeight: "100" }}>
+              Your message is on the way ...
+            </h2>
+            <Link href="/">
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                Home
+              </Button>
+            </Link>
           </Paper>
         ) : (
           <Paper className={classes.paper}>
