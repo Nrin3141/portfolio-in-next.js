@@ -32,6 +32,10 @@ app
         // password must be at least 5 chars long
       ],
       (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          return res.send({ responseCode: 1, errors: errors.array() });
+        }
         if (
           req.body.captcha === undefined ||
           req.body.captcha === "" ||
@@ -59,16 +63,13 @@ app
           if (body.success !== undefined && !body.success) {
             return res.json({
               responseCode: 1,
-              responseDesc: "Failed captcha verification"
+              responseDesc: "Captcha invalid"
             });
           }
           // username must be an email
 
           // Finds the validation errors in this request and wraps them in an object with handy functions
-          const errors = validationResult(req);
-          if (!errors.isEmpty()) {
-            return res.json({ responseCode: 1, errors: errors.array() });
-          }
+
           let output = `
       <h2>Contact Info</h2>
       <h3>Name: ${req.body.name}</h3>

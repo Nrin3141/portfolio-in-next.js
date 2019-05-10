@@ -93,24 +93,16 @@ class OutlinedTextFields extends React.Component {
     })
       .then(res => res.json())
       .then(res => this.setState({ res }));
-    const recaptchaValue = this.recaptchaRef.current.reset();
   };
-
+  componentDidUpdate = () => {
+    //console.log(this.state);
+  };
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     });
   };
-  componentDidUpdate = () => {
-    console.log(this.state.res);
-  };
-  componentDidMount = () => {
-    this.grecaptchaObject = window.grecaptcha;
-  };
-  onSubmit = () => {
-    const recaptchaValue = this.recaptchaRef.current.getValue();
-    this.props.onSubmit(recaptchaValue);
-  };
+
   render() {
     const { classes } = this.props;
 
@@ -153,6 +145,7 @@ class OutlinedTextFields extends React.Component {
                 />
                 <TextField
                   error={
+                    this.state.res &&
                     this.state.res.errors &&
                     this.state.res.errors[0].param === "email"
                   }
@@ -189,9 +182,7 @@ class OutlinedTextFields extends React.Component {
               <ReCAPTCHA
                 ref={this.recaptchaRef}
                 sitekey="6LfOuqIUAAAAALhxD0-qBaJNQHsVVyktV_Uo3DUK"
-                grecaptcha={this.grecaptchaObject}
               />
-
               {/*<div
                 className="g-recaptcha"
                 data-sitekey={process.env.RECAPTCHA_API_PUBLIC_KEY.toString()}
