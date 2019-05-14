@@ -1,5 +1,6 @@
 const express = require("express");
 const next = require("next");
+var cors = require("cors");
 const fs = require("fs");
 const dev = process.env.NODE_ENV !== "production";
 const request = require("request");
@@ -23,6 +24,7 @@ app
     });
     server.use(express.json());
     server.use(express.urlencoded());
+    server.use(cors());
     server.post(
       "/contact",
       [

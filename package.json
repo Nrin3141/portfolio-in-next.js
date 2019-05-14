@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
+    "cors": "^2.8.5",
     "dotenv-webpack": "1.5.7",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
